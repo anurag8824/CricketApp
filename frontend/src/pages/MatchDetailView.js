@@ -43,14 +43,14 @@ const MatchDetailView = () => {
                     <div className="w-full max-w-4xl mx-auto mt-8">
 
                         {/* Tab Buttons */}
-                        <div className="relative overflow-x-scroll scrollbar-hide gap-3 flex-shrink-0 flex px-3">
+                        <div className="relative overflow-x-scroll scrollbar-hide gap-2 flex-shrink-0 flex px-3">
                             {/* Render each tab button */}
                             {tabs.map((tab, index) => (
                                 <button
 
 
                                     key={tab}
-                                    className={`w-1/3  text-center py-2 text-lg font-normal ${activeTab === tab ? "text-black" : "text-gray-500"
+                                    className={`md:w-1/5 w-1/3  gap-2 flex-shrink-0 text-center py-2 text-lg font-normal ${activeTab === tab ? "text-black" : "text-gray-500"
                                         }`}
                                     onClick={() => handleTabClick(tab)}
                                 >
@@ -60,9 +60,10 @@ const MatchDetailView = () => {
 
                             {/* Underline */}
                             <div
-                                className="absolute bottom-0 h-1 bg-blue-800 transition-transform duration-300 ease-in-out rounded-lg"
+                                className="absolute md:w-1/5 w-1/3   bottom-0 h-1 bg-blue-800 transition-transform duration-300 ease-in-out rounded-lg"
                                 style={{
-                                    width: `${100 / tabs.length}%`, // The underline width is dynamically set based on the number of tabs
+                                //   width:"20%",
+                                    // width: `${100 / tabs.length}%`, // The underline width is dynamically set based on the number of tabs
                                     transform: `translateX(${activeIndex * 100}%)`, // Move underline based on the active tab index
                                 }}
                             ></div>

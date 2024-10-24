@@ -40,7 +40,20 @@ const OverView = () => {
 
 
               <li class="px-6 py-1  grid">
-                <div className='h-36 w-36 bg-gray-400'>
+                <div className='h-36 w-72 items-center grid grid-rows-2 pl-3 gap-y-1 justify-start bg-gray-200'>
+                  <div className='w-full flex  gap-2   '>
+                    <img src='/ind.png' className='w-12 h-12  rounded-full' />
+                    <p className='pt-3 text-lg font-normal uppercase '>India</p>
+                  </div>
+
+                  <div className='w-full flex  gap-2   '>
+                    <img src='/ind.png' className='w-12 h-12 rounded-full' />
+                    <p className='pt-3  text-lg font-normal uppercase '>New Zealand</p>
+                  </div>
+
+
+
+
 
                 </div>
               </li>

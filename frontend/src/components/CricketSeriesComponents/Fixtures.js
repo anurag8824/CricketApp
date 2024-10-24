@@ -1,9 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import FixtureFilter from './FixtureFilter'
 
 const Fixtures = () => {
   return (
     <div>
+
+      <div>
+        <FixtureFilter/>
+      </div>
+
+
+
       <div class="relative  overflow-x-auto ">
         <table class=" w-full text-left rtl:text-right text-gray-950 ">
           <thead class="bg-gray-200   ">
@@ -102,7 +110,9 @@ const Fixtures = () => {
 
           </tbody>
         </table>
-      </div></div>
+      </div>
+      
+      </div>
   )
 }
 
