@@ -41,13 +41,13 @@ function App() {
           <Route path="cricket-series/venues" element={<SeriesView />} />
 
 
-          <Route path="match-detail/commentary" element={<MatchDetailView />} />
-          <Route path="match-detail/scorecard" element={<MatchDetailView />} />
+          <Route path="match-detail/:id/commentary" element={<MatchDetailView />} />
+          <Route path="match-detail/:id/scorecard" element={<MatchDetailView />} />
 
-          <Route path="match-detail/info" element={<MatchDetailView />} />
+          <Route path="match-detail/:id/info" element={<MatchDetailView />} />
 
-          <Route path="match-detail/squad" element={<MatchDetailView />} />
-          <Route path="match-detail/highlights" element={<MatchDetailView />} />
+          <Route path="match-detail/:id/squad" element={<MatchDetailView />} />
+          <Route path="match-detail/:id/highlights" element={<MatchDetailView />} />
 
 
 

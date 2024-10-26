@@ -6,9 +6,9 @@ const HomePolls = () => {
             <div class="text-2xl font-medium border-b pb-3">Latest Polls</div>
 
 
-            <div className="md:grid md:grid-cols-2 gap-6  mt-3 w-full md:justify-items-center ">
+            <div className="lg:grid md:grid-cols-2 gap-6  mt-3 w-full md:justify-items-center ">
                 {/* First Column */}
-                <div class="h-96 w-full mx-auto max-w-xs rounded-lg border bg-white">
+                <div class="h-96 w-full mt-2 mx-auto max-w-xs rounded-lg border bg-white">
                     <div class="w-full rounded-lg rounded-b-none bg-blue-950 text-center">
                         <h5 class="truncate p-3 text-sm tracking-tight text-white dark:text-white">
                             T20 Spring Challenge 2024
@@ -57,7 +57,7 @@ const HomePolls = () => {
                 </div>
 
                 {/* Second Column */}
-                <div class="h-96 w-full mx-auto max-w-xs rounded-lg border bg-white">
+                <div class="h-96 w-full mt-2 mx-auto max-w-xs rounded-lg border bg-white">
                     <div class="w-full rounded-lg rounded-b-none bg-blue-950 text-center">
                         <h5 class="truncate p-3 text-sm tracking-tight text-white dark:text-white">
                             T20 Spring Challenge 2024

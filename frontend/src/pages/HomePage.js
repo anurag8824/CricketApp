@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import './CustomScrollbar.css';
 import FbConnect from '../components/FbConnect';
 import { Link } from 'react-router-dom';
@@ -9,16 +10,22 @@ import HomeTopStories from '../components/HomeTopStories';
 import HomePolls from '../components/HomePolls';
 import HomeAllTeam from './HomeAllTeam';
 
+
 const HomePage = () => {
+
+ 
+
+
+
   return (
-    <div className='h-full md:mx-16 m-2'>
+    <div className='h-full md:mx-16 m-2 mt-4'>
 
       <HomeScroller />
 
 
 
       <HomeAllTeam />
-     
+
 
       {/* <div class="text-2xl font-medium"></div> */}
 
@@ -31,7 +38,7 @@ const HomePage = () => {
 
         <HomePopularSeries />
 
-        <div class=" md:w-3/6 h-fit mx-auto space-y-6">
+        <div class=" lg:w-3/6 h-fit mx-auto space-y-6">
 
           <HomeTopStories />
 

@@ -34,7 +34,7 @@ const CricketSeries = () => {
 
                     <div className="w-full max-w-4xl mx-auto mt-8">
                         {/* Tab Buttons */}
-                        <div className="relative flex px-3">
+                        <div className="relative flex gap-4 px-3">
                             <button
                                 className={`w-1/3 text-center py-2 text-lg font-normal ${activeTab === "current" ? "text-black" : "text-black"
                                     }`}
@@ -43,7 +43,7 @@ const CricketSeries = () => {
                                 Current & Future Series
                             </button>
                             <button
-                                className={`w-1/3 text-center py-2 text-lg font-normal ${activeTab === "archive" ? "text-black" : "text-black"
+                                className={`w-1/3 text-center py-2  text-lg font-normal ${activeTab === "archive" ? "text-black" : "text-black"
                                     }`}
                                 onClick={() => handleTabClick("archive")}
                             >
@@ -52,7 +52,7 @@ const CricketSeries = () => {
 
                             {/* Underline */}
                             <div
-                                className={`absolute bottom-0   rounded-lg h-1 bg-blue-800 transition-transform duration-300 ease-in-out ${activeTab === "current" ? "translate-x-0" : "translate-x-full"
+                                className={`absolute bottom-0  rounded-lg h-1 bg-blue-800 transition-transform duration-300 ease-in-out ${activeTab === "current" ? "translate-x-0" : "translate-x-full"
                                     }`}
                                 style={{ width: "33.33%" }}
                             ></div>
@@ -79,7 +79,7 @@ const CricketSeries = () => {
                                                         Month
                                                     </th>
                                                     <th scope="col" class="px-6 w-full py-3">
-                                                        Series
+                                                        Series Name
                                                     </th>
 
                                                 </tr>
@@ -89,25 +89,22 @@ const CricketSeries = () => {
 
                                                 <tr class="border-b border-gray-200 dark:border-gray-700">
 
-                                                    <th scope="row" class=" text-blue-950 font-medium text-lg text-center align-text-top py-3 px-3 bg-gray-200 whitespace-nowrap">
+                                                    <th scope="row" class=" text-blue-900 font-medium text-lg text-center align-text-top py-3 px-3 bg-gray-200 whitespace-nowrap">
                                                         December 2024
                                                     </th>
 
 
 
 
-                                                    <td class="list-none py-2.5 text-blue-950">
+                                                    <td class="list-none w-full  py-2.5 text-black">
 
-                                                        <li class="px-6 py-1  grid">
-                                                            <Link to="overview" className='font-medium text-base hover:underline'>India tour of England 2025</Link>
-                                                            <span>21 Nov - 08 Jan 2026</span>
+                                                        <li class="md:pl-6 md:pr-2 py-2  px-1  grid">
+                                                            <Link to="overview" className=' text-sm font-medium hover:underline'>India tour of England 2025</Link>
+                                                            <span className='text-gray-500'>21 Nov - 08 Jan 2026</span>
                                                         </li>
 
 
-                                                        <li class="px-6 py-1  grid">
-                                                            <Link to="#" className='font-medium text-base hover:underline'>India tour of England 2025</Link>
-                                                            <span>21 Nov - 08 Jan 2026</span>
-                                                        </li>
+                                                     
 
 
 
@@ -124,25 +121,27 @@ const CricketSeries = () => {
 
                                                 <tr class="border-b border-gray-200 dark:border-gray-700">
 
-                                                    <th scope="row" class=" text-blue-950 font-medium text-lg text-center align-text-top py-3 px-3 bg-gray-200 whitespace-nowrap">
+                                                    <th scope="row" class=" text-blue-800 font-medium text-lg text-center align-text-top py-3 px-3 bg-gray-200 whitespace-nowrap">
                                                         December 2024
                                                     </th>
 
 
 
 
-                                                    <td class="list-none py-2.5 text-blue-950">
+                                                    <td class="list-none py-2.5  text-black">
 
-                                                        <li class="px-6 py-1 grid">
-                                                            <Link to="#" className='font-medium text-base hover:underline'>India tour of England 2025</Link>
-                                                            <span>21 Nov - 08 Jan 2026</span>
+                                                    <li class="md:pl-6 md:pr-2 py-2 px-1   grid">
+                                                            <Link to="overview" className='  text-sm font-medium hover:underline'>India tour of England 2025</Link>
+                                                            <span className='text-gray-500'>21 Nov - 08 Jan 2026</span>
                                                         </li>
 
 
-                                                        <li class="px-6 py-1  grid">
-                                                            <Link to="#" className='font-medium text-base hover:underline'>India tour of England 2025</Link>
-                                                            <span>21 Nov - 08 Jan 2026</span>
+
+                                                        <li class="md:pl-6 md:pr-2 py-2  px-1  grid">
+                                                            <Link to="overview" className='  text-sm font-medium hover:underline'>India tour of England 2025</Link>
+                                                            <span className='text-gray-500'>21 Nov - 08 Jan 2026</span>
                                                         </li>
+
 
 
 

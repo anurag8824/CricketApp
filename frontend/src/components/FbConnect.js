@@ -4,7 +4,7 @@ const FbConnect = () => {
     return (
 
 
-        <div class="md:w-72 md:block hidden w-fit  mx-auto md:mx-0   ">
+        <div class="md:w-72 lg:block hidden w-fit  mx-auto md:mx-0   ">
             <div class="grid items-center justify-between space-y-6 pb-3  ">
 
                 <div class="grid text-2xl h-96 font-medium w-full top-0 rounded-xl px-3 py-3 border bg-white  overflow-hidden ">
@@ -30,7 +30,7 @@ const FbConnect = () => {
 
                     <div class="flex  py-2 pt-4 border-b w-full   items-center gap-x-3">
                         <img
-                            src="youtube.png"
+                            src="/youtube.png"
                             alt="Tania Andrew"
                             class="relative inline-block h-fit w-fit  object-center"
                         />
@@ -43,7 +43,7 @@ const FbConnect = () => {
 
                     <div class="flex  py-2 border-b w-full object-cover    items-center gap-x-6">
                         <img
-                            src="facebook.png"
+                            src="/facebook.png"
                             alt="Tania Andrew"
                             class="relative inline-block h-fit w-fit  object-center"
                         />
@@ -57,7 +57,7 @@ const FbConnect = () => {
 
                     <div class="flex  py-2  w-full object-cover    items-center gap-x-6">
                         <img
-                            src="instagram.png"
+                            src="/instagram.png"
                             alt="Tania Andrew"
                             class="relative inline-block h-fit w-fit  object-center"
                         />
