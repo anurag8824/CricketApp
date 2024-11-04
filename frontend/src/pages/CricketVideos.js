@@ -48,7 +48,7 @@ const CricketVideos = () => {
     return (
         <div className='md:mx-20 mx-4 h-full'>
             <div className='flex px-1 py-10 justify-between'>
-                <h1 className='text-2xl font-medium'>Top Videos</h1>
+                <p className='text-2xl font-medium'>Top Videos</p>
 
 
 

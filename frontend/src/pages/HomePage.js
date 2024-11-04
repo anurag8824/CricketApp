@@ -9,6 +9,7 @@ import HomePopularSeries from '../components/HomePopularSeries';
 import HomeTopStories from '../components/HomeTopStories';
 import HomePolls from '../components/HomePolls';
 import HomeAllTeam from './HomeAllTeam';
+import { HomeDropdown } from '../components/HomeDropdown';
 
 
 const HomePage = () => {
@@ -18,6 +19,11 @@ const HomePage = () => {
 
 
   return (
+
+    <div>
+      <HomeDropdown/>
+
+
     <div className='h-full md:mx-16 m-2 mt-4'>
 
       <HomeScroller />
@@ -58,6 +64,8 @@ const HomePage = () => {
 
 
 
+
+    </div>
 
     </div>
 

@@ -6,9 +6,7 @@ const Fixtures = () => {
   return (
     <div>
 
-      <div>
         <FixtureFilter/>
-      </div>
 
 
 

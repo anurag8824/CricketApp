@@ -7,7 +7,7 @@ const HomeTopStories = () => {
 
   return (
     <div><div className='rounded-xl border bg-white px-3 py-3'>
-      <div class="text-2xl font-medium border-b pb-3">Top Stories</div>
+      <div className="text-2xl font-medium border-b pb-3">Top Stories</div>
 
       <div class="flex  items-center justify-between pb-3 pt-3 last:pb-0">
         <div class="grid items-center gap-x-3">
@@ -16,7 +16,7 @@ const HomeTopStories = () => {
           <div class="text-blue-gray-900 block border-b py-4 leading-relaxed tracking-normal antialiased ">
             <div className="relative" style={{ paddingBottom: "56.25%", height: "0", overflow: "hidden" }}>
               <iframe
-                class="absolute top-0 left-0 w-full h-full"
+                className="absolute top-0 left-0 w-full h-full"
                 src="https://www.youtube.com/embed/_sztki-L7bg"
                 title="YouTube video player"
                 frameborder="0"

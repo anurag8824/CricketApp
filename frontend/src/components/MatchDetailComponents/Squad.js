@@ -36,10 +36,10 @@ const Squad = () => {
                 class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
               />
 
-              <h1 class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+              <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
                 <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>Suryakumar Yadav</Link>
                 <span>Batter</span>
-              </h1>
+              </p>
             </div>
 
             <div class="flex gap-4 border-b pt-1 pb-2.5  items-center">
@@ -49,10 +49,10 @@ const Squad = () => {
                 class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
               />
 
-              <h1 class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+              <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
                 <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>Suryakumar Yadav</Link>
                 <span>Batter</span>
-              </h1>
+              </p>
             </div>
 
             <div class="flex gap-4 border-b pt-1 pb-2.5  items-center">
@@ -62,10 +62,10 @@ const Squad = () => {
                 class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
               />
 
-              <h1 class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+              <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
                 <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>Suryakumar Yadav</Link>
                 <span>Batter</span>
-              </h1>
+              </p>
             </div>
 
 
@@ -87,10 +87,10 @@ const Squad = () => {
                 class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
               />
 
-              <h1 class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+              <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
                 <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>Suryakumar Yadav</Link>
                 <span>Batter</span>
-              </h1>
+              </p>
             </div>
 
             <div class="flex gap-4 border-b pt-1 pb-2.5  items-center">
@@ -100,10 +100,10 @@ const Squad = () => {
                 class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
               />
 
-              <h1 class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+              <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
                 <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>Suryakumar Yadav</Link>
                 <span>Batter</span>
-              </h1>
+              </p>
             </div>
 
             <div class="flex gap-4 border-b pt-1 pb-2.5  items-center">
@@ -113,10 +113,10 @@ const Squad = () => {
                 class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
               />
 
-              <h1 class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+              <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
                 <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>Suryakumar Yadav</Link>
                 <span>Batter</span>
-              </h1>
+              </p>
             </div>
 
 
@@ -149,10 +149,10 @@ const Squad = () => {
                 class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
               />
 
-              <h1 class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+              <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
                 <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>Suryakumar Yadav</Link>
                 <span>Batter</span>
-              </h1>
+              </p>
             </div>
 
             <div class="flex gap-4 border-b pt-1 pb-2.5  items-center">
@@ -162,10 +162,10 @@ const Squad = () => {
                 class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
               />
 
-              <h1 class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+              <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
                 <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>Suryakumar Yadav</Link>
                 <span>Batter</span>
-              </h1>
+              </p>
             </div>
 
             <div class="flex gap-4 border-b pt-1 pb-2.5  items-center">
@@ -175,10 +175,10 @@ const Squad = () => {
                 class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
               />
 
-              <h1 class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+              <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
                 <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>Suryakumar Yadav</Link>
                 <span>Batter</span>
-              </h1>
+              </p>
             </div>
 
 
@@ -198,10 +198,10 @@ const Squad = () => {
                 class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
               />
 
-              <h1 class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+              <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
                 <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>Suryakumar Yadav</Link>
                 <span>Batter</span>
-              </h1>
+              </p>
             </div>
 
             <div class="flex gap-4 border-b pt-1 pb-2.5  items-center">
@@ -211,10 +211,10 @@ const Squad = () => {
                 class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
               />
 
-              <h1 class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+              <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
                 <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>Suryakumar Yadav</Link>
                 <span>Batter</span>
-              </h1>
+              </p>
             </div>
 
             <div class="flex gap-4 border-b pt-1 pb-2.5  items-center">
@@ -224,10 +224,10 @@ const Squad = () => {
                 class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
               />
 
-              <h1 class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+              <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
                 <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>Suryakumar Yadav</Link>
                 <span>Batter</span>
-              </h1>
+              </p>
             </div>
 
 

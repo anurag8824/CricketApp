@@ -9,7 +9,7 @@ const CricketPlayers = () => {
         <div className='md:mx-20 mx-4 h-full'>
 
             <div className='flex px-1  py-10 justify-between'>
-                <h1 className='text-2xl  font-medium'>Cricket Players</h1>
+                <p className='text-2xl  font-medium'>Cricket Players</p>
                 <input className=' bg-white rounded-full pr-6 pl-3 py-3 text-sm' placeholder='Search...' />
             </div>
 
@@ -24,10 +24,10 @@ const CricketPlayers = () => {
                                 class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
                             />
 
-                            <h1 class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+                            <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
                                 <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>Suryakumar Yadav</Link>
                                 <span>India</span>
-                            </h1>
+                            </p>
                         </div>
 
                         <div class="flex gap-4 border-b pb-2.5 items-center">
@@ -37,11 +37,11 @@ const CricketPlayers = () => {
                                 class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
                             />
 
-                            <h1 class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+                            <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
                                 <Link to="#" className='hover:underline'>Babar Azam</Link>
                                 <span>Pakistan</span>
 
-                            </h1>
+                            </p>
                         </div>
 
 
@@ -52,11 +52,11 @@ const CricketPlayers = () => {
                                 class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
                             />
 
-                            <h1 class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+                            <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
                                 <Link to="#" className='hover:underline'>Philip Salt</Link>
                                 <span>England</span>
 
-                            </h1>
+                            </p>
                         </div>
 
 
@@ -67,11 +67,11 @@ const CricketPlayers = () => {
                                 class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
                             />
 
-                            <h1 class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+                            <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
                                 <Link to="#" className='hover:underline'>Virat Kohli</Link>
                                 <span>India</span>
 
-                            </h1>
+                            </p>
                         </div>
 
 
@@ -82,10 +82,10 @@ const CricketPlayers = () => {
                                 class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
                             />
 
-                            <h1 class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+                            <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
                                 <Link to="#" className='hover:underline'>Suryakumar Yadav</Link>
                                 <span>India</span>
-                            </h1>
+                            </p>
                         </div>
 
 
@@ -97,11 +97,11 @@ const CricketPlayers = () => {
                                 class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
                             />
 
-                            <h1 class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+                            <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
                                 <Link to="#" className='hover:underline'>Glenn Philip</Link>
                                 <span>New Zealand</span>
 
-                            </h1>
+                            </p>
                         </div>
 
 
@@ -112,11 +112,11 @@ const CricketPlayers = () => {
                                 class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
                             />
 
-                            <h1 class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+                            <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
                                 <Link to="#" className='hover:underline'>Philip Salt</Link>
                                 <span>England</span>
 
-                            </h1>
+                            </p>
                         </div>
 
 
@@ -127,11 +127,11 @@ const CricketPlayers = () => {
                                 class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
                             />
 
-                            <h1 class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+                            <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
                                 <Link to="#" className='hover:underline'>Virat Kohli</Link>
                                 <span>India</span>
 
-                            </h1>
+                            </p>
                         </div>
 
 
@@ -142,10 +142,10 @@ const CricketPlayers = () => {
                                 class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
                             />
 
-                            <h1 class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+                            <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
                                 <Link to="#" className='hover:underline'>Suryakumar Yadav</Link>
                                 <span>India</span>
-                            </h1>
+                            </p>
                         </div>
 
 
@@ -157,11 +157,11 @@ const CricketPlayers = () => {
                                 class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
                             />
 
-                            <h1 class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+                            <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
                                 <Link to="#" className='hover:underline'>Glenn Philip</Link>
                                 <span>New Zealand</span>
 
-                            </h1>
+                            </p>
                         </div>
 
                     </div>

@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Info = () => {
+const Info = ({data}) => {
   return (
     <div>
-      <div className='border-b flex justify-between  w-full '>
-        <div className='w-full text-center flex flex-col  items-center justify-center '>
+      <div className='border-b pb-2 flex justify-between    w-full '>
+        <div className='w-full  text-center flex flex-col  items-center  '>
           <img src='/ind.png' className='w-12 h-12 border rounded-full' />
-          <p className='pt-3 text-center'>South Africa Women  </p>
+          <p className='pt-3 text-center'>South Africa Women {data}  </p>
 
         </div>
 
@@ -15,9 +15,9 @@ const Info = () => {
           <p className='border bg-black w-8 h-8 mt-3 rounded-full text-white flex items-center justify-center'>Vs</p>
         </div>
 
-        <div className='w-full text-center flex flex-col  items-center justify-center '>
+        <div className='w-full text-center flex flex-col  items-center  '>
           <img src='/ban.png' className='w-12 h-12 border rounded-full' />
-          <p className='pt-3 text-center '>New Zealand Women</p>
+          <p className='pt-3 text-center  '>New Zealand Women</p>
 
         </div>
 

@@ -12,6 +12,9 @@ import SeriesView from './pages/SeriesView';
 import Fixtures from './components/CricketSeriesComponents/Fixtures';
 import CricketPlayerDetail from './pages/CricketPlayerDetail';
 import MatchDetailView from './pages/MatchDetailView';
+import CricketSchedule from './pages/CricketSchedule';
+import CricketTeamDetail from './pages/CricketTeamDetail';
+import MyProvider from './pages/MyProvider';
 
 
 
@@ -19,43 +22,41 @@ import MatchDetailView from './pages/MatchDetailView';
 function App() {
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="cricket-teams" element={<CricketTeams />} />
-          <Route path="cricket-players" element={<CricketPlayers />} />
-          <Route path="cricket-player-detail" element={<CricketPlayerDetail />} />
-          <Route path="cricket-news" element={<CricketNews />} />
-          <Route path="cricket-videos" element={<CricketVideos />} />
-          <Route path="polls" element={<LatestPolls />} />
+    <MyProvider>
 
-          <Route path="cricket-series" element={<CricketSeries />} />
-          {/* Cricket Series Routes  */}
-          <Route path="cricket-series/overview" element={<SeriesView />} />
-          <Route path="cricket-series/fixtures" element={<SeriesView />} />
-          <Route path="cricket-series/news" element={<SeriesView />} />
-          <Route path="cricket-series/videos" element={<SeriesView />} />
-          <Route path="cricket-series/squads" element={<SeriesView />} />
-          <Route path="cricket-series/stats" element={<SeriesView />} />
-          <Route path="cricket-series/venues" element={<SeriesView />} />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<HomePage />} />
+            <Route path="cricket-teams" element={<CricketTeams />} />
+            <Route path="cricket-players" element={<CricketPlayers />} />
+            <Route path="cricket-player-detail" element={<CricketPlayerDetail />} />
+            <Route path="cricket-news" element={<CricketNews />} />
+            <Route path="cricket-videos" element={<CricketVideos />} />
+            <Route path="polls" element={<LatestPolls />} />
 
 
-          <Route path="match-detail/:id/commentary" element={<MatchDetailView />} />
-          <Route path="match-detail/:id/scorecard" element={<MatchDetailView />} />
-
-          <Route path="match-detail/:id/info" element={<MatchDetailView />} />
-
-          <Route path="match-detail/:id/squad" element={<MatchDetailView />} />
-          <Route path="match-detail/:id/highlights" element={<MatchDetailView />} />
+            <Route path="cricket-schedule" element={<CricketSchedule />} />
 
 
+            <Route path="cricket-series" element={<CricketSeries />} />
+            {/* Cricket Series Routes  */}
+            <Route path="cricket-series/overview" element={<SeriesView />} />
+            <Route path="cricket-series/fixtures" element={<SeriesView />} />
+            <Route path="cricket-series/news" element={<SeriesView />} />
+            <Route path="cricket-series/videos" element={<SeriesView />} />
+            <Route path="cricket-series/squads" element={<SeriesView />} />
+            <Route path="cricket-series/stats" element={<SeriesView />} />
+            <Route path="cricket-series/venues" element={<SeriesView />} />
 
 
-
-
-
-         
+            <Route path='cricket-team-detail/home' element={<CricketTeamDetail />} />
+            <Route path='cricket-team-detail/recent' element={<CricketTeamDetail />} />
+            <Route path='cricket-team-detail/upcoming' element={<CricketTeamDetail />} />
+            <Route path='cricket-team-detail/news' element={<CricketTeamDetail />} />
+            <Route path='cricket-team-detail/videos' element={<CricketTeamDetail />} />
+            <Route path='cricket-team-detail/players' element={<CricketTeamDetail />} />
+            <Route path='cricket-team-detail/series' element={<CricketTeamDetail />} />
 
 
 
@@ -63,6 +64,13 @@ function App() {
 
 
 
+            <Route path="match-detail/:id/commentary" element={<MatchDetailView />} />
+            <Route path="match-detail/:id/scorecard" element={<MatchDetailView />} />
+
+            <Route path="match-detail/:id/info" element={<MatchDetailView />} />
+
+            <Route path="match-detail/:id/squad" element={<MatchDetailView />} />
+            <Route path="match-detail/:id/highlights" element={<MatchDetailView />} />
 
 
 
@@ -70,10 +78,28 @@ function App() {
 
 
 
-          {/* <Route path="*" element={<NoPage />} /> */}
-        </Route>
-      </Routes>
-    </BrowserRouter>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            {/* <Route path="*" element={<NoPage />} /> */}
+          </Route>
+        </Routes>
+      </BrowserRouter>
+
+    </MyProvider>
+
   );
 }
 

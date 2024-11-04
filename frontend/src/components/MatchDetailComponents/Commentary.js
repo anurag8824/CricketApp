@@ -15,378 +15,392 @@ const Commentary = ({ data }) => {
   var Data = [...(data?.response.live.commentaries || [])].reverse()
   return (
     <div className=''>
-      <div className='md:w-full justify-between bg-red-50  pl-3'>
 
-        <div>
+      <div className='md:w-full md:flex gap-4 '>
 
-          <div class="md:flex items-center justify-between gap-4 pb-3 pt-3 last:pb-0">
-            <div class="flex items-center gap-x-3">
+        <div className='justify-between   w-full md:w-1/2'>
+
+          <div class="flex items-center md:justify-between   gap-4 pb-4 last:pb-0">
+            <div class="flex items-center gap-x-5">
               <img
                 src={data?.response.match_info.teama.logo_url}
                 alt="Tania Andrew"
-                class="relative inline-block h-9 w-9 rounded-full object-cover object-center"
+                class="relative inline-block h-10 w-10 border rounded-full object-cover object-center"
               />
-              <div>
-                <p class="block font-sans text-base font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
-                  {data?.response.match_info.teama.short_name}
-                </p>
+              <p class="block font-sans text-base font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+                {data?.response.match_info.teama.short_name}ind
+              </p>
 
-              </div>
             </div>
-            <p class="block font-sans text-base font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+            <p class="block font-sans md:text-base text-sm  font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
               {data?.response.match_info.teama.scores_full}
+              259-10 (79.1)
+              & 255-10 (69.4)
             </p>
           </div>
 
-          <div class="md:flex items-center justify-between gap-4 pb-3 pt-3 last:pb-0">
-            <div class="flex items-center gap-x-3">
+          <div class="flex items-center md:justify-between  gap-4  pt-4 last:pb-0">
+            <div class="flex items-center gap-x-5">
               <img
                 src={data?.response.match_info.teamb.logo_url}
                 alt="John Micheal"
-                class="relative inline-block h-9 w-9 rounded-full object-cover object-center"
+                class="relative inline-block h-10 w-10 border rounded-full object-cover object-center"
               />
-              <div>
-                <p class="block font-sans text-base font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
-                  {data?.response.match_info.teamb.short_name}
-                </p>
-
-              </div>
-            </div>
-            <h6 class="block font-sans text-base font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
-              {data?.response.match_info.teamb.scores_full}
-            </h6>
-          </div>
-
-
-        </div>
-
-
-
-
-
-
-
-
-
-      </div>
-
-      <div className='pl-3 '>
-
-
-        <div className='w-full '>
-
-          <div className="flex flex-col   items-center  mt-8 p-4 bg-gray-200 md:full mx-auto">
-
-            <div className=' w-full flex justify-between'>
-
-              {/* Probability Section */}
-              <div className="  font-medium text-lg w-1/2 ">
-                Probability
-
-              </div>
-
-              {/* Buttons for toggling views */}
-              <div className=" font-medium text-base gap-4  flex">
-                <button
-                  onClick={() => handleViewChange('%')}
-                  className={`px-4 py-1 rounded   ${view === '%' ? 'bg-blue-500 text-white' : 'bg-gray-300 text-white'
-                    }`}
-                >
-                  % View
-                </button>
-
-                <button
-                  onClick={() => handleViewChange('odds')}
-                  className={`px-4 py-2 rounded ${view === 'odds' ? 'bg-blue-500 text-white' : 'bg-gray-300 text-white'
-                    }`}
-                >
-                  Odds View
-                </button>
-
-              </div>
-
-
-            </div>
-
-
-
-            {/* The view content below the buttons */}
-            <div className="  w-full  p-4 rounded-md">
-              <p className="text-lg">
-                {view === '%' ?
-
-                  <div className='flex font-medium justify-between'>
-
-                    <div>
-                      <p>Team A</p>
-                      <p>% State</p>
-
-
-                    </div>
-
-                    <div>
-                      <p>Team B</p>
-                      <p>% State</p>
-
-
-                    </div>
-
-
-
-
-                  </div> :
-
-                  <div>
-                    <div className='flex   justify-between'>
-
-
-
-
-                    </div>
-
-
-
-                    <div className='flex font-medium  items-center justify-between'>
-
-                      <p>Team Name A </p>
-                      <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>6</p>
-
-
-
-
-                    </div>
-
-                    <div className='flex mt-2 font-medium  items-center justify-between'>
-
-                      <p>Team Name B </p>
-                      <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>6</p>
-
-
-
-
-                    </div>
-
-                  </div>
-
-
-
-
-
-
-
-                }
+              <p class="block font-sans text-base font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+                {data?.response.match_info.teamb.short_name}ind
               </p>
+
             </div>
+            <p class="block font-sans md:text-base text-sm font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+              {data?.response.match_info.teamb.scores_full}
+
+              255-10 (69.4)
+            </p>
+          </div>
+
+
+
+        </div>
+
+        <div className=' md:w-1/2 py-5 md:py-0 text-3xl font-bold  flex items-center justify-center bg-gray-800 text-amber-200 text-center'>
+          Four
+        </div>
+
+      </div> 
+
+      <p className=' font-medium text-md mt-2  text-red-600 '>{data?.response.live.status_note}Inida needs 45 run to win</p>
+
+
+
+
+      <div className="flex flex-col  items-center  mt-8 py-2 px-1 bg-gray-100 md:w-full">
+
+        <div className=' w-full flex border-b items-center pb-2 justify-between'>
+          <div className=" pl-4 font-medium md:text-lg md:w-1/2 ">
+            Probability
+          </div>
+
+          {/* Buttons for toggling views */}
+          <div className=" font-medium md:text-base text-xs gap-4  flex">
+            <button
+              onClick={() => handleViewChange('%')}
+              className={`md:px-4 px-2 md:py-1 py-1 rounded   ${view === '%' ? 'bg-blue-500 text-white' : 'bg-gray-300 text-white'
+                }`}
+            >
+              % View
+            </button>
+
+            <button
+              onClick={() => handleViewChange('odds')}
+              className={`md:px-4 px-2 md:py-2 rounded ${view === 'odds' ? 'bg-blue-500 text-white' : 'bg-gray-300 text-white'
+                }`}
+            >
+              Odds View
+            </button>
 
           </div>
+
 
         </div>
 
 
 
-        <p className=' font-medium text-lg mt-6 text-red-600 '>{data?.response.live.status_note}  </p>
+        {/* The view content below the buttons */}
+        <div className="  w-full  p-4 rounded-md">
+          <p className="text-lg">
+            {view === '%' ?
 
-        <div className='hidden mt-4 w-full border'>
-          <img src='/playerofmatch.png' className='w-24  h-24' />
-          <div className=' pl-4 bg-gray-100 items-center grid w-full'>
-            <p>Player of the match</p>
+              <div className='flex font-medium text-base justify-between'>
 
-            <div class="flex items-center pl-4  gap-4">
-              <img
-                src="/viratkohli.png"
-                alt="John Micheal"
-                class="relative inline-block h-10 w-10 rounded-full object-cover object-center"
-              />
-
-              <Link class="block font-sans hover:underline text-blue-600 text-lg font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
-                Virat Kohli
-              </Link>
+                <div>
+                  <p>Team A</p>
+                  <p>% State</p>
 
 
-            </div>
+                </div>
+
+                <div>
+                  <p>Team B</p>
+                  <p>% State</p>
 
 
-          </div>
+                </div>
 
 
 
 
+              </div> :
+
+              <div>
+                <div className='flex   justify-between'>
 
 
+
+
+                </div>
+
+
+
+                <div className='flex font-medium  text-base items-center justify-between'>
+
+                  <p>Team Name A </p>
+                  <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>6</p>
+
+
+                </div>
+
+                <div className='flex mt-2 font-medium  text-base items-center justify-between'>
+
+                  <p>Team Name B </p>
+                  <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>6</p>
+
+
+
+
+                </div>
+
+              </div>
+
+
+
+
+
+
+
+            }
+          </p>
         </div>
+
+
 
       </div>
+
+
+      <div className='hidden mt-4 w-full border'>
+        <img src='/playerofmatch.png' className='w-24  h-24' />
+        <div className=' pl-4 bg-gray-100 items-center grid w-full'>
+          <p>Player of the match</p>
+
+          <div class="flex items-center pl-4  gap-4">
+            <img
+              src="/viratkohli.png"
+              alt="John Micheal"
+              class="relative inline-block h-10 w-10 rounded-full object-cover object-center"
+            />
+
+            <Link class="block font-sans hover:underline text-blue-600 text-lg font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+              Virat Kohli
+            </Link>
+
+
+          </div>
+
+
+        </div>
+
+
+
+
+
+
+      </div>
+
+
 
       {/* batting */}
 
-      <div className=' mt-6 md:w-fit w-full border'>
-
-        <div class="relative  overflow-x-auto ">
-          <table class=" w-full text-left rtl:text-right text-gray-950 ">
-            <thead class="bg-blue-950 text-white   ">
-              <tr>
-                <th scope="col" class="px-6  font-normal w-1/3 py-3">
-                  Batter
-                </th>
+      <div className='md:flex w-full mt-6'>
 
 
-                <th scope="col" class="px-6 font-normal w-1/4 py-3">
-                  R
-                </th>
+        <div className='md:w-2/3 w-full'>
 
-                <th scope="col" class="px-6 font-normal w-1/4 py-3">
-                  B
-                </th>
-
-                <th scope="col" class="px-6 font-normal w-1/4 py-3">
-                  4s
-                </th>
-
-                <th scope="col" class="px-6 font-normal w-1/4 py-3">
-                  6s
-                </th>
+          <div class="relative  overflow-x-auto ">
+            <table class="w-full text-center  rtl:text-right text-gray-950 ">
+              <thead class="bg-blue-950 text-white   ">
+                <tr>
+                  <th scope="col" class=" px-2 py-2  font-normal">
+                    Batter
+                  </th>
 
 
-                <th scope="col" class="px-6 font-normal w-1/4 py-3">
-                  SR
-                </th>
+                  <th scope="col" class=" font-normal  ">
+                    R
+                  </th>
 
-              </tr>
-            </thead>
+                  <th scope="col" class=" font-normal  ">
+                    B
+                  </th>
 
-            <tbody>
+                  <th scope="col" class=" font-normal ">
+                    4s
+                  </th>
 
-              {data?.response.live.batsmen.map((item, index) => (
-
-                item ? (
-
-
-                  <tr key={index} className="border-b border-gray-200 text-center  align-text-top dark:border-gray-700">
-
-                    <td scope='row' className=' text-blue-600'>
-                      <Link className='hover:underline text-sm'>{item.name} </Link>
-
-                    </td>
-
-                    <td scope='row' class="">
-                      {item.runs}
-                    </td>
-
-                    <td className=''>
-                      {item.balls_faced}
-                    </td>
-
-                    <td className=''>
-                      {item.fours}
-                    </td>
-
-                    <td className=''>
-                      {item.sixes}
-                    </td>
-
-                    <td className=''>
-                      {item.strike_rate}
-                    </td>
+                  <th scope="col" class="font-normal ">
+                    6s
+                  </th>
 
 
+                  <th scope="col" class=" font-normal  ">
+                    SR
+                  </th>
 
-                  </tr>
+                </tr>
+              </thead>
 
-                ) : null
+              <tbody>
 
-              ))}
+                {data?.response.live.batsmen.map((item, index) => (
+
+                  item ? (
 
 
-            </tbody>
-          </table>
+                    <tr key={index} className="border-b border-gray-200 text-center  align-text-top dark:border-gray-700">
+
+                      <td scope='row' className=' text-blue-600'>
+                        <Link className='hover:underline text-sm '>{item.name} </Link>
+
+                      </td>
+
+                      <td scope='row' class="">
+                        {item.runs}
+                      </td>
+
+                      <td scope='row' className=''>
+                        {item.balls_faced}
+                      </td>
+
+                      <td scope='row' className=''>
+                        {item.fours}
+                      </td>
+
+                      <td scope='row' className=''>
+                        {item.sixes}
+                      </td>
+
+                      <td scope='row' className=''>
+                        {item.strike_rate}
+                      </td>
+
+                    </tr>
+
+                  ) : null
+
+                ))}
+
+
+              </tbody>
+
+            </table>
+          </div>
+
+          {/* 2nd table  */}
+          <div class="relative  overflow-x-auto ">
+            <table class=" w-full text-center   rtl:text-right text-gray-950 ">
+              <thead class="bg-blue-950 text-white   ">
+                <tr>
+                  <th scope="col" class="px-2  py-2 font-normal ">
+                    Bowler
+                  </th>
+
+
+                  <th scope="col" class="font-normal ">
+                    O
+                  </th>
+
+                  <th scope="col" class="font-normal ">
+                    M
+                  </th>
+
+                  <th scope="col" class="font-normal ">
+                    R
+                  </th>
+
+                  <th scope="col" class="font-normal ">
+                    W
+                  </th>
+
+
+                  <th scope="col" class="font-normal ">
+                    ECO
+                  </th>
+
+                </tr>
+              </thead>
+
+              <tbody>
+
+                <tr className="border-b border-gray-200 text-center  align-text-top dark:border-gray-700">
+
+                  <td scope='row' className='  text-blue-600'>
+                    <Link className='hover:underline text-sm'>{data?.response.live.bowlers[0].name}</Link>
+
+                  </td>
+
+                  <td scope='row' class="">
+                    {data?.response.live.bowlers[0].overs}
+                  </td>
+
+                  <td className=''>
+                    {data?.response.live.bowlers[0].maidens}
+                  </td>
+
+                  <td className=''>
+                    {data?.response.live.bowlers[0].runs_conceded}
+                  </td>
+
+                  <td className=''>
+                    {data?.response.live.bowlers[0].wickets}
+                  </td>
+
+                  <td className=''>
+                    {data?.response.live.bowlers[0].econ}
+                  </td>
+
+
+
+                </tr>
+
+
+
+
+
+
+
+
+
+
+
+              </tbody>
+            </table>
+          </div>
+
         </div>
 
+        <div className=' border-l mx-4 bg-white '>
 
-        {/* 2nd table  */}
-        <div class="relative mt-6  overflow-x-auto ">
-          <table class=" w-full text-left rtl:text-right text-gray-950 ">
-            <thead class="bg-blue-950 text-white   ">
-              <tr>
-                <th scope="col" class="px-6  font-normal w-1/4 py-3">
-                  Bowler
-                </th>
+        </div>
 
+        <div className='w-full md:w-1/3 text-sm border bg-gray-100'>
 
-                <th scope="col" class="px-6 font-normal w-1/4 py-3">
-                  O
-                </th>
-
-                <th scope="col" class="px-6 font-normal w-1/4 py-3">
-                  M
-                </th>
-
-                <th scope="col" class="px-6 font-normal w-1/4 py-3">
-                  R
-                </th>
-
-                <th scope="col" class="px-6 font-normal w-1/4 py-3">
-                  W
-                </th>
+          <p className='bg-blue-950 font-normal text-white py-2  px-2  '>Key Stats</p>
+          <p className='py-2 gap-2 px-2'><span className='font-medium text-sm'>Partership:</span> 7(12)</p>
+          <p className='pb-2 px-2'><span className='font-medium text-sm'>Last Wickets:</span> Shafali Verma c Isabella Gaze b Hannah Rowe 12(11) ‐ 16/1 in 3.4 ov</p>
+          <p className='pb-2 px-2'><span className='font-medium text-sm'>Toss:</span> New Zealand Women (Batting)</p>
 
 
-                <th scope="col" class="px-6 font-normal w-1/4 py-3">
-                  ECO
-                </th>
-
-              </tr>
-            </thead>
-
-            <tbody>
-
-              <tr className="border-b border-gray-200 text-center  align-text-top dark:border-gray-700">
-
-                <td scope='row' className='  text-blue-600'>
-                  <Link className='hover:underline text-sm'>{data?.response.live.bowlers[0].name}</Link>
-
-                </td>
-
-                <td scope='row' class="">
-                  {data?.response.live.bowlers[0].overs}
-                </td>
-
-                <td className=''>
-                  {data?.response.live.bowlers[0].maidens}
-                </td>
-
-                <td className=''>
-                  {data?.response.live.bowlers[0].runs_conceded}
-                </td>
-
-                <td className=''>
-                  {data?.response.live.bowlers[0].wickets}
-                </td>
-
-                <td className=''>
-                  {data?.response.live.bowlers[0].econ}
-                </td>
-
-
-
-              </tr>
-
-
-
-
-
-
-
-
-
-
-
-            </tbody>
-          </table>
         </div>
 
 
 
 
       </div>
+
+
+
+
+
+
+
 
 
       <div className='mt-2 flex gap-x-1 ml-4'>
@@ -485,16 +499,6 @@ const Commentary = ({ data }) => {
           </div>
 
       ))}
-
-
-
-
-
-
-
-
-
-
 
 
     </div>

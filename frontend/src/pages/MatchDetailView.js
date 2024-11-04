@@ -8,6 +8,7 @@ import Squad from '../components/MatchDetailComponents/Squad';
 import Highlights from '../components/MatchDetailComponents/Highlights';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios'
+import { useMyContext } from './MyProvider';
 
 
 
@@ -26,7 +27,7 @@ const MatchDetailView = () => {
     const activeIndex = tabs.indexOf(activeTab);
 
     const matchId = useParams().id
-    console.log(matchId,"matchId=")
+    console.log(matchId, "matchId=")
 
     const handleTabClick = (tab) => {
         setActiveTab(tab);
@@ -34,7 +35,7 @@ const MatchDetailView = () => {
 
     };
 
- 
+
 
     useEffect(() => {
         const ws = new WebSocket(`ws://webhook.entitysport.com:8087/connect?token=${token}`)
@@ -42,25 +43,29 @@ const MatchDetailView = () => {
             console.log('WebSocket connection established');
         };
         ws.onmessage = (event) => {
-            const data =JSON.parse(event.data)
+            const data = JSON.parse(event.data)
             // console.log('Message received:', data);
-          
-            if(data.response.match_id==matchId){
-                console.log(data,"data");
 
-                console.log(data.response?.ball_event,"hhhhhhhhh")
+            if (data.response.match_id == matchId) {
+                console.log(data, "data");
 
-                if(data.response?.ball_event
-                ){
+                console.log(data.response?.ball_event, "hhhhhhhhh")
+
+                if (data.response?.ball_event
+                ) {
                     setBallevent(data);
 
-                    console.log(ballevent,"jhhh");
-                }else{
+                    console.log(ballevent, "jhhh");
+                } else {
                     setLivedata(data);
                 }
             }
         };
-    },[])
+    }, [])
+
+
+    // context data 
+    const {cdata} =  useMyContext();
 
 
 
@@ -69,12 +74,12 @@ const MatchDetailView = () => {
 
             <div className='flex px-1  py-10 justify-between'>
                 <div>
-                <p className='text-2xl  font-medium'>{livedata?.response.match_info.title}, {livedata?.response.match_info.subtitle} Match</p>
-                <p className='text-base  font-normal text-gray-500'>Date & Time: {livedata?.response.match_info.date_start_ist}</p>
+                    <p className='text-2xl  font-medium'>{livedata?.response.match_info.title}, {livedata?.response.match_info.subtitle} Match</p>
+                    <p className='text-base  font-normal text-gray-500'>Date & Time: {livedata?.response.match_info.date_start_ist}</p>
 
 
                 </div>
-              
+
 
 
                 <div>{ballevent?.response.ball_event
@@ -83,8 +88,9 @@ const MatchDetailView = () => {
                 {/* <input className=' bg-white rounded-full pr-6 pl-3 py-3 text-sm' placeholder='Search...' /> */}
             </div>
 
-            <div className='flex gap-x-8'>
-                <div className='border mb-4 bg-white rounded-xl md:w-3/4 w-full'>
+            <div className='flex gap-x-8 w-full'>
+                
+                <div className='border mb-4 bg-white rounded-xl lg:w-3/4 w-full'>
 
 
 
@@ -142,7 +148,7 @@ const MatchDetailView = () => {
 
                             {activeTab === "info" && (
                                 <div className="transition-opacity duration-500 ease-in-out opacity-100">
-                                    <Info />
+                                    <Info data={cdata} />
                                 </div>
                             )}
 

@@ -50,7 +50,7 @@ const HomeTopNews = () => {
     <div>
     <div className='md:flex gap-4 mt-2 border-b pb-2.5 items-center'>
       <img
-        src='viratnews.webp'
+        src='/viratnews.webp'
         alt='Virat Kohli News'
         className='relative border inline-block md:h-24 md:w-36 rounded-md object-cover object-center'
       />

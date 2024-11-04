@@ -40,7 +40,7 @@ const SeriesView = () => {
         <div className='md:mx-20 mx-4 '>
 
             <div className='flex px-1  py-10 justify-between'>
-                <h1 className='text-2xl  font-medium'>India tour of England 2025</h1>
+                <p className='text-2xl  font-medium'>India tour of England 2025</p>
                 {/* <input className=' bg-white rounded-full pr-6 pl-3 py-3 text-sm' placeholder='Search...' /> */}
             </div>
 

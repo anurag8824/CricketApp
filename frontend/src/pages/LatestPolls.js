@@ -8,7 +8,7 @@ const LatestPolls = () => {
         <div className='md:mx-20 mx-4 h-full'>
 
             <div className='flex px-1  py-10 justify-between'>
-                <h1 className='text-2xl  font-medium'>Latest Polls</h1>
+                <p className='text-2xl  font-medium'>Latest Polls</p>
                 <input className=' bg-white rounded-full pr-6 pl-3 py-3 text-sm' placeholder='Search...' />
             </div>
 
@@ -36,10 +36,10 @@ const LatestPolls = () => {
                                         type="radio"
                                         value=""
                                         name="default-radio"
-                                        class="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                                        class="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 "
                                     />
                                     <label for="default-radio-1" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                        North west
+                                        North westgg
                                     </label>
                                 </div>
                                 <div class="flex items-center pl-8">
@@ -48,7 +48,7 @@ const LatestPolls = () => {
                                         type="radio"
                                         value=""
                                         name="default-radio"
-                                        class="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                                        class="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600  "
                                     />
                                     <label for="default-radio-2" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                         Lions
@@ -74,11 +74,11 @@ const LatestPolls = () => {
                                 Who will win ?
                                 <div class="my-4 flex items-center pl-8">
                                     <input
-                                        id="default-radio-1"
+                                        id="default-radio-3"
                                         type="radio"
                                         value=""
                                         name="default-radio"
-                                        class="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                                        class="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 "
                                     />
                                     <label for="default-radio-1" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                         North west
@@ -86,11 +86,11 @@ const LatestPolls = () => {
                                 </div>
                                 <div class="flex items-center pl-8">
                                     <input
-                                        id="default-radio-2"
+                                        id="default-radio-4"
                                         type="radio"
                                         value=""
                                         name="default-radio"
-                                        class="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                                        class="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 "
                                     />
                                     <label for="default-radio-2" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                         Lions

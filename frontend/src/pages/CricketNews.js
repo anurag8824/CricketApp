@@ -49,7 +49,7 @@ const CricketNews = () => {
     return (
         <div className='md:mx-20 mx-4 h-full'>
             <div className='flex px-1 py-10 justify-between'>
-                <h1 className='text-2xl font-medium'>Top Stories</h1>
+                <p className='text-2xl font-medium'>Top Stories</p>
 
 
 

@@ -7,7 +7,7 @@ const CricketTeams = () => {
         <div className='md:mx-20 mx-4 h-full'>
 
             <div className='flex px-1  py-10 justify-between'>
-                <h1 className='text-2xl  font-medium'>CricketTeams</h1>
+                <p className='text-2xl  font-medium'>CricketTeams</p>
                 <input className=' bg-white rounded-full pr-6 pl-3 py-3 text-sm' placeholder='Search...' />
             </div>
 
@@ -23,7 +23,7 @@ const CricketTeams = () => {
                                 class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
                             />
 
-                            <Link to="#" class="block hover:underline font-sans text-base font-normal leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+                            <Link to="/cricket-team-detail/home" class="block hover:underline font-sans text-base font-normal leading-relaxed tracking-normal text-blue-gray-900 antialiased">
                                 India
                             </Link>
                         </div>

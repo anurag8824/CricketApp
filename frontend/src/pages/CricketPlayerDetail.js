@@ -9,7 +9,7 @@ const PlayerDetail = () => {
         <div className='md:mx-20 mx-4 h-full'>
 
             <div className='flex px-1  py-10 justify-between'>
-                <h1 className='text-2xl  font-medium'>Cricket Player Info</h1>
+                <p className='text-2xl  font-medium'>Cricket Player Info</p>
             </div>
 
             <div className='flex gap-x-8'>
@@ -30,7 +30,7 @@ const PlayerDetail = () => {
                                         class="relative border inline-block h-full w-72 md:w-full rounded-full object-cover object-center"
                                     />
 
-                                    <h1 className='text-lg font-medium'>Suryakumar yadav</h1>
+                                    <p className='text-lg font-medium'>Suryakumar yadav</p>
                                     <span>India</span>
 
 
@@ -38,7 +38,7 @@ const PlayerDetail = () => {
 
 
                                 <div className=' mt-6 mx-auto md:w-full'>
-                                    <h1 className='text-lg font-medium'>Personal Information</h1>
+                                    <p className='text-lg font-medium'>Personal Information</p>
 
                                     <div className='mx-4 '>
                                         <p className='border-b w-full py-4'><strong>Born:</strong> Sep 14, 1990</p>
@@ -54,7 +54,7 @@ const PlayerDetail = () => {
                                 </div>
 
                                 <div className=' mt-6 w-full'>
-                                    <h1 className='text-lg font-medium'>Cricket Rankings</h1>
+                                    <p className='text-lg font-medium'>Cricket Rankings</p>
 
                                     <div className=' '>
                                         <div class="relative  overflow-x-auto ">
@@ -176,11 +176,11 @@ const PlayerDetail = () => {
                             <div className='md:w-1/2  w-full'>
 
                                 <div className='md:block hidden'>
-                                    <h1 className='text-3xl font-medium'>Suryakumar yadav</h1>
+                                    <p className='text-3xl font-medium'>Suryakumar yadav</p>
                                 </div>
 
                                 <div className=' mt-6'>
-                                    <h1 className='text-lg font-medium'>Batting Career Summary</h1>
+                                    <p className='text-lg font-medium'>Batting Career Summary</p>
                                     <div className='mt-2 '>
                                         <div class="relative  overflow-x-auto ">
                                             <table class=" w-full text-left rtl:text-right text-gray-950 ">
@@ -295,7 +295,7 @@ const PlayerDetail = () => {
 
 
                                 <div className=' mt-6'>
-                                    <h1 className='text-lg font-medium'>Bowling Career Summary</h1>
+                                    <p className='text-lg font-medium'>Bowling Career Summary</p>
                                     <div className='mt-2 '>
                                         <div class="relative  overflow-x-auto ">
                                             <table class=" w-full text-left rtl:text-right text-gray-950 ">
@@ -410,7 +410,7 @@ const PlayerDetail = () => {
 
 
                                 <div className=' mt-6 w-full'>
-                                    <h1 className='text-lg font-medium'>Career Information</h1>
+                                    <p className='text-lg font-medium'>Career Information</p>
 
                                     <div className='mx-4 '>
                                         <p className='border-b w-full py-4'><strong>Test debut:</strong>  vs Australia at Vidarbha Cricket Association Stadium</p>
@@ -426,7 +426,7 @@ const PlayerDetail = () => {
                                 </div>
 
                                 <div className=' mt-6 w-full'>
-                                    <h1 className='text-lg font-medium'>About Suryakumar Yadav</h1>
+                                    <p className='text-lg font-medium'>About Suryakumar Yadav</p>
 
                                     <div className=''>
                                         <p className='border-b w-full py-4'>   vs Australia at Vidarbha Cricket Association Stadium</p>
