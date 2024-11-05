@@ -40,7 +40,7 @@ const MatchDetailView = () => {
   
 
     useEffect(() => {
-        const ws = new WebSocket(`ws://webhook.entitysport.com:8087/connect?token=${token}`)
+        const ws = new WebSocket(`wss://webhook.entitysport.com:8087/connect?token=${token}`)
         ws.onopen = () => {
             console.log('WebSocket connection established');
         };
