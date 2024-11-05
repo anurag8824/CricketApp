@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Info = ({data}) => {
+const Info = ({ data }) => {
   return (
     <div>
       <div className='border-b pb-2 flex justify-between    w-full '>
         <div className='w-full  text-center flex flex-col  items-center  '>
-          <img src='/ind.png' className='w-12 h-12 border rounded-full' />
-          <p className='pt-3 text-center'>South Africa Women {data}  </p>
+          <img src={data?.response.match_info.teama.logo_url} className='w-12 h-12 border rounded-full' />
+          <p className='pt-3 text-center'> {data?.response.match_info.teama.name}   </p>
 
         </div>
 
@@ -16,8 +16,8 @@ const Info = ({data}) => {
         </div>
 
         <div className='w-full text-center flex flex-col  items-center  '>
-          <img src='/ban.png' className='w-12 h-12 border rounded-full' />
-          <p className='pt-3 text-center  '>New Zealand Women</p>
+          <img src={data?.response.match_info.teamb.logo_url} className='w-12 h-12 border rounded-full' />
+          <p className='pt-3 text-center  '> {data?.response.match_info.teamb.name}</p>
 
         </div>
 
@@ -28,14 +28,14 @@ const Info = ({data}) => {
 
         <div className='border-b mt-4 flex justify-between  w-full   '>
           <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Series:</p>
-          <Link to="/cricket-series" className='font-normal text-base text-blue-500 py-3 pl-3 hover:underline  w-full md:w-1/2'>South Africa tour of Bangladesh 2024</Link>
+          <Link to="/cricket-series" className='font-normal text-base text-blue-500 py-3 pl-3 hover:underline  w-full md:w-1/2'>{data?.response.match_info.competition.title}</Link>
 
         </div>
 
         <div className='border-b mt-3 flex justify-between   w-full   '>
           <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Match:</p>
           <p className='font-normal text-base  py-3 pl-3  w-full md:w-1/2'>
-            Bangladesh vs South Africa, 1st Test Match</p>
+           {data?.response.match_info.title}, {data?.response.match_info.subtitle}</p>
 
         </div>
 
@@ -43,7 +43,7 @@ const Info = ({data}) => {
           <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Date & Time:</p>
           <p className='font-normal text-base  py-3 pl-3   w-full md:w-1/2'>
 
-            Mon, 21 Oct, 09:30 AM your time</p>
+            {data?.response.match_info.date_start_ist}</p>
 
         </div>
 
@@ -52,7 +52,7 @@ const Info = ({data}) => {
           <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Venue:</p>
           <p className='font-normal text-base  py-3 pl-3  w-full md:w-1/2'>
 
-            Sher-e-Bangla Stadium</p>
+            {data?.response.match_info.venue.name}</p>
 
         </div>
 
@@ -61,7 +61,7 @@ const Info = ({data}) => {
           <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Toss:</p>
           <p className='font-normal text-base  py-3 pl-3  w-full md:w-1/2'>
 
-            Bangladesh opt to bat</p>
+           {data?.response.match_info.toss.text}</p>
 
         </div>
 
@@ -70,7 +70,7 @@ const Info = ({data}) => {
           <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Umpires:</p>
           <p className='font-normal text-base  py-3 pl-3  w-full md:w-1/2'>
 
-            Joel Wilson,Nitin Menon</p>
+            {data?.response.match_info.umpires}</p>
 
         </div>
 
@@ -79,7 +79,7 @@ const Info = ({data}) => {
           <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Third Umpire:</p>
           <p className='font-normal text-base  pl-3   py-3  w-full md:w-1/2'>
 
-            Langton Rusere</p>
+            -</p>
 
         </div>
 
@@ -88,7 +88,7 @@ const Info = ({data}) => {
           <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Match Referee:</p>
           <p className='font-normal text-base pl-3   py-3  w-full md:w-1/2'>
 
-            Andy Pycroft</p>
+            {data?.response.match_info.referee}</p>
 
         </div>
 
@@ -105,7 +105,7 @@ const Info = ({data}) => {
 
 
         <div className='border-b mt-3 flex justify-between   w-full   '>
-          <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Bangladesh</p>
+          <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>{data?.response.match_info.teama.name}</p>
           <div className='font-normal md:flex grid grid-cols-4 gap-x-2 gap-y-2 text-base  py-3 pl-3   w-full md:w-1/2'>
 
             <p className='border-2 font-medium bg-gray-100 w-8 h-8  border-gray-400 rounded-sm text-gray-400 flex items-center justify-center'>*</p>
@@ -126,7 +126,7 @@ const Info = ({data}) => {
 
 
         <div className='border-b mt-3 flex justify-between   w-full   '>
-          <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Bangladesh</p>
+          <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>{data?.response.match_info.teamb.name}</p>
           <div className='font-normal md:flex grid grid-cols-4 gap-x-2 gap-y-2 text-base  py-3 pl-3   w-full md:w-1/2'>
 
             <p className='border-2 font-medium bg-gray-100 w-8 h-8  border-gray-400 rounded-sm text-gray-400 flex items-center justify-center'>*</p>
@@ -161,7 +161,7 @@ const Info = ({data}) => {
           <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Stadium:</p>
           <p className='font-normal text-base  py-3 pl-3  w-full md:w-1/2'>
 
-            Sher-e-Bangla Stadium</p>
+            {data?.response.match_info.venue.name}</p>
 
         </div>
 
@@ -172,17 +172,17 @@ const Info = ({data}) => {
           <p className='font-normal text-base  py-3 pl-3  w-full md:w-1/2'>
 
 
-            Dhaka</p>
+            {data?.response.match_info.venue.location}</p>
         </div>
 
 
 
         <div className='border-b mt-3 flex justify-between   w-full   '>
-          <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Capacity:</p>
+          <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Country:</p>
           <p className='font-normal text-base  py-3 pl-3  w-full md:w-1/2'>
 
 
-            26000</p>
+            {data?.response.match_info.venue.country}</p>
         </div>
 
       </div>
@@ -199,7 +199,7 @@ const Info = ({data}) => {
           <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Weather:</p>
           <p className='font-normal text-base  py-3 pl-3  w-full md:w-1/2'>
 
-            Hazy</p>
+            {data?.response.match_info.weather.weather}</p>
 
         </div>
 
@@ -210,29 +210,29 @@ const Info = ({data}) => {
           <p className='font-normal text-base  py-3 pl-3  w-full md:w-1/2'>
 
 
-            28 °C</p>
+           {data?.response.match_info.weather.temp}°C</p>
         </div>
 
 
 
         <div className='border-b mt-3 flex justify-between   w-full   '>
-          <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Rain Forecast:</p>
+          <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Clouds</p>
           <p className='font-normal text-base  py-3 pl-3  w-full md:w-1/2'>
 
 
 
-            17%</p>
+            {data?.response.match_info.weather.clouds}</p>
         </div>
 
 
         <div className='border-b mt-3 flex justify-between   w-full   '>
-          <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Humid:</p>
+          <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Humidity:</p>
           <p className='font-normal text-base  py-3 pl-3  w-full md:w-1/2'>
 
 
 
 
-            85%</p>
+            {data?.response.match_info.weather.humidity}%</p>
         </div>
 
 
@@ -245,20 +245,11 @@ const Info = ({data}) => {
 
 
 
-            8 km/h</p>
+            {data?.response.match_info.weather.wind_speed} km/h</p>
         </div>
 
 
-        <div className='border-b mt-3 flex justify-between   w-full   '>
-          <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Updated at:</p>
-          <p className='font-normal text-base  py-3 pl-3  w-full md:w-1/2'>
-
-
-
-
-
-            23 Oct, 08:23 AM</p>
-        </div>
+       
 
       </div>
 

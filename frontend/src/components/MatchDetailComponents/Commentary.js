@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import { Link } from 'react-router-dom'
 
-const Commentary = ({ data }) => {
+const Commentary = ({ data, balldata }) => {
 
 
   const [view, setView] = useState('%');
@@ -16,9 +16,9 @@ const Commentary = ({ data }) => {
   return (
     <div className=''>
 
-      <div className='md:w-full md:flex gap-4 '>
+      <div className='md:w-full md:flex grid grid-cols-1 md:grid-cols-2 gap-4 '>
 
-        <div className='justify-between   w-full md:w-1/2'>
+        <div className='justify-between md:order-1 order-2  w-full md:w-1/2'>
 
           <div class="flex items-center md:justify-between   gap-4 pb-4 last:pb-0">
             <div class="flex items-center gap-x-5">
@@ -28,14 +28,13 @@ const Commentary = ({ data }) => {
                 class="relative inline-block h-10 w-10 border rounded-full object-cover object-center"
               />
               <p class="block font-sans text-base font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
-                {data?.response.match_info.teama.short_name}ind
+                {data?.response.match_info.teama.short_name}
               </p>
 
             </div>
             <p class="block font-sans md:text-base text-sm  font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
               {data?.response.match_info.teama.scores_full}
-              259-10 (79.1)
-              & 255-10 (69.4)
+
             </p>
           </div>
 
@@ -47,14 +46,14 @@ const Commentary = ({ data }) => {
                 class="relative inline-block h-10 w-10 border rounded-full object-cover object-center"
               />
               <p class="block font-sans text-base font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
-                {data?.response.match_info.teamb.short_name}ind
+                {data?.response.match_info.teamb.short_name}
               </p>
 
             </div>
             <p class="block font-sans md:text-base text-sm font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
               {data?.response.match_info.teamb.scores_full}
 
-              255-10 (69.4)
+
             </p>
           </div>
 
@@ -62,18 +61,19 @@ const Commentary = ({ data }) => {
 
         </div>
 
-        <div className=' md:w-1/2 py-5 md:py-0 text-3xl font-bold  flex items-center justify-center bg-gray-800 text-amber-200 text-center'>
-          Four
+        <div className=' md:w-1/2 py-5 md:order-2 order-1 md:py-0 text-3xl font-bold  flex items-center justify-center bg-gray-800 text-amber-200 text-center'>
+          {balldata?.response.ball_event
+          }
         </div>
 
-      </div> 
+      </div>
 
-      <p className=' font-medium text-md mt-2  text-red-600 '>{data?.response.live.status_note}Inida needs 45 run to win</p>
-
-
+      <p className=' font-medium text-md mt-2  text-red-600 '>{data?.response.live.status_note}</p>
 
 
-      <div className="flex flex-col  items-center  mt-8 py-2 px-1 bg-gray-100 md:w-full">
+
+      {/* odds from here  */}
+      <div className="flex flex-col  items-center  mt-4 py-2 px-1 bg-gray-100 md:w-full">
 
         <div className=' w-full flex border-b items-center pb-2 justify-between'>
           <div className=" pl-4 font-medium md:text-lg md:w-1/2 ">
@@ -84,7 +84,7 @@ const Commentary = ({ data }) => {
           <div className=" font-medium md:text-base text-xs gap-4  flex">
             <button
               onClick={() => handleViewChange('%')}
-              className={`md:px-4 px-2 md:py-1 py-1 rounded   ${view === '%' ? 'bg-blue-500 text-white' : 'bg-gray-300 text-white'
+              className={`md:px-4 px-2 md:py-1 py-1 rounded   ${view === '%' ? 'bg-blue-950 text-white' : 'bg-gray-300 text-blue-950'
                 }`}
             >
               % View
@@ -92,7 +92,7 @@ const Commentary = ({ data }) => {
 
             <button
               onClick={() => handleViewChange('odds')}
-              className={`md:px-4 px-2 md:py-2 rounded ${view === 'odds' ? 'bg-blue-500 text-white' : 'bg-gray-300 text-white'
+              className={`md:px-4 px-2 md:py-2 rounded ${view === 'odds' ? 'bg-blue-950 text-white' : 'bg-gray-300 text-blue-950'
                 }`}
             >
               Odds View
@@ -109,27 +109,31 @@ const Commentary = ({ data }) => {
         <div className="  w-full  p-4 rounded-md">
           <p className="text-lg">
             {view === '%' ?
-
-              <div className='flex font-medium text-base justify-between'>
-
-                <div>
-                  <p>Team A</p>
-                  <p>% State</p>
+              <div>
 
 
+
+                <div className='flex font-medium text-base justify-between'>
+                  <div>
+                    <p>{data?.response.match_info.teama.short_name}</p>
+                    <p>{Math.round(data?.response.teamwinpercentage.team_a_win)}%</p>
+                  </div>
+                  <div>
+                    <p>{data?.response.match_info.teamb.short_name}</p>
+                    <p>{Math.round(data?.response.teamwinpercentage.team_b_win)}%</p>
+                  </div>
                 </div>
 
-                <div>
-                  <p>Team B</p>
-                  <p>% State</p>
-
-
+                <div className='flex w-full'>
+                  <p style={{ width: `${data?.response.teamwinpercentage.team_a_win}%` }} className='bg-green-500 h-2 '></p>
+                  <p style={{ width: `${data?.response.teamwinpercentage.team_b_win}%` }} className='bg-red-500 h-2'></p>
                 </div>
 
+              </div>
 
 
 
-              </div> :
+              :
 
               <div>
                 <div className='flex   justify-between'>
@@ -141,15 +145,57 @@ const Commentary = ({ data }) => {
 
 
 
-                <div className='flex font-medium  text-base items-center justify-between'>
 
-                  <p>Team Name A </p>
-                  <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>6</p>
+                <div className=' font-medium  text-base items-center '>
+                  {data?.response.live.live_inning.batting_team_id == data?.response.match_info.teama.team_id ?
 
+                    <div className='flex  items-center justify-between'>
+
+                      <p>{data?.response.match_info.teama.short_name} </p>
+
+                      <div className='flex gap-2'>
+
+                        <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'> {Math.round((parseFloat(data?.response.live_odds.matchodds.teama.back) * 100) - 100).toString().padStart(2, '0')}</p>
+                        <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'> 
+                          {data?.response.live_odds.matchodds.teama.lay ? Math.round((parseFloat(data?.response.live_odds.matchodds.teama.lay) * 100) - 100).toString().padStart(2, '0') : "0"}
+                          
+                          </p>
+
+                      </div>
+
+                    </div>
+
+                    :
+
+                    <div className='flex items-center justify-between'>
+
+                      <p>{data?.response.match_info.teamb.short_name} </p>
+
+                      <div className='flex gap-2' >
+                        <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'>
+                          {Math.round((parseFloat(data?.response.live_odds.matchodds.teamb.back) * 100) - 100).toString().padStart(2, '0')}
+                        </p>
+
+
+
+                        <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
+
+                          {data?.response.live_odds.matchodds.teamb.lay ? Math.round((parseFloat(data?.response.live_odds.matchodds.teamb.lay) * 100) - 100).toString().padStart(2, '0') : "0"}
+
+                        </p>
+
+                      </div>
+
+
+
+
+                    </div>
+
+                  }
 
                 </div>
 
-                <div className='flex mt-2 font-medium  text-base items-center justify-between'>
+                {/* <div className='flex mt-2 font-medium  text-base items-center justify-between'>
 
                   <p>Team Name B </p>
                   <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>6</p>
@@ -157,7 +203,7 @@ const Commentary = ({ data }) => {
 
 
 
-                </div>
+                </div> */}
 
               </div>
 
@@ -257,7 +303,7 @@ const Commentary = ({ data }) => {
                     <tr key={index} className="border-b border-gray-200 text-center  align-text-top dark:border-gray-700">
 
                       <td scope='row' className=' text-blue-600'>
-                        <Link className='hover:underline text-sm '>{item.name} </Link>
+                        <Link className='hover:underline text-left text-sm '>{item.name} </Link>
 
                       </td>
 
@@ -383,9 +429,16 @@ const Commentary = ({ data }) => {
         <div className='w-full md:w-1/3 text-sm border bg-gray-100'>
 
           <p className='bg-blue-950 font-normal text-white py-2  px-2  '>Key Stats</p>
-          <p className='py-2 gap-2 px-2'><span className='font-medium text-sm'>Partership:</span> 7(12)</p>
-          <p className='pb-2 px-2'><span className='font-medium text-sm'>Last Wickets:</span> Shafali Verma c Isabella Gaze b Hannah Rowe 12(11) ‐ 16/1 in 3.4 ov</p>
-          <p className='pb-2 px-2'><span className='font-medium text-sm'>Toss:</span> New Zealand Women (Batting)</p>
+
+          <p className='py-2 gap-2 px-2'><span className='font-medium text-sm'>Partership:</span> {data?.response.live.live_inning.current_partnership.runs}({data?.response.live.live_inning.current_partnership.balls})</p>
+
+          { data?.response.live.live_inning.last_wicket.name ?
+
+          <p className='pb-2 px-2'><span className='font-medium text-sm'>Last Wickets:</span> {data?.response.live.live_inning.last_wicket.name}{data?.response.live.live_inning.last_wicket.how_out}{data?.response.live.live_inning.last_wicket.runs}({data?.response.live.live_inning.last_wicket.balls}) ‐ {data?.response.live.live_inning.last_wicket.score_at_dismissal}/{data?.response.live.live_inning.last_wicket.number} in {data?.response.live.live_inning.last_wicket.overs_at_dismissal}ov</p> : null
+
+          }
+
+          <p className='pb-2 px-2'><span className='font-medium text-sm'>Toss:</span> {data?.response.match_info.toss.text}</p>
 
 
         </div>
@@ -430,9 +483,7 @@ const Commentary = ({ data }) => {
 
       </div>
 
-      {/* {Data = [...(data?.response.live.commentaries || [])].reverse()} */}
 
-      {/* { console.log("Data", data?.response.live.commentaries)} */}
 
 
 
@@ -456,7 +507,7 @@ const Commentary = ({ data }) => {
 
               <div className='ml-4'>
 
-                <p>Mehidy Hasan Miraz <span className='pl-4'>55(107)</span></p>
+                <p>Mehdi <span className='pl-4'>55(107)</span></p>
                 <p>Mehidy Hasan Miraz <span className='pl-4'>55(107)</span></p>
 
                 <p>Mehidy Hasan Miraz <span className='pl-4'>55(107)</span></p>

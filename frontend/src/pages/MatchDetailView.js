@@ -36,6 +36,8 @@ const MatchDetailView = () => {
     };
 
 
+    
+  
 
     useEffect(() => {
         const ws = new WebSocket(`ws://webhook.entitysport.com:8087/connect?token=${token}`)
@@ -65,7 +67,7 @@ const MatchDetailView = () => {
 
 
     // context data 
-    const {cdata} =  useMyContext();
+    // const {cdata} =  useMyContext();
 
 
 
@@ -82,8 +84,7 @@ const MatchDetailView = () => {
 
 
 
-                <div>{ballevent?.response.ball_event
-                } hello world</div>
+                
 
                 {/* <input className=' bg-white rounded-full pr-6 pl-3 py-3 text-sm' placeholder='Search...' /> */}
             </div>
@@ -92,8 +93,6 @@ const MatchDetailView = () => {
                 
                 <div className='border mb-4 bg-white rounded-xl lg:w-3/4 w-full'>
 
-
-
                     <div className="w-full max-w-4xl mx-auto mt-8">
 
                         {/* Tab Buttons */}
@@ -101,8 +100,6 @@ const MatchDetailView = () => {
                             {/* Render each tab button */}
                             {tabs.map((tab, index) => (
                                 <button
-
-
                                     key={tab}
                                     className={`md:w-1/5 w-1/3  gap-2 flex-shrink-0 text-center py-2 text-lg font-normal ${activeTab === tab ? "text-black" : "text-gray-500"
                                         }`}
@@ -123,32 +120,24 @@ const MatchDetailView = () => {
                             ></div>
                         </div>
 
-                        {/* {activeTab === "current" ? <SeriesFilter /> : null} */}
-                        {/* {activeTab === "archive" ? <YearFilter /> : null} */}
-
-
-
-
-
-
                         {/* Content Sections */}
                         <div className="relative mt-6 mb-6  px-3">
                             {activeTab === "commentary" && (
                                 <div className="transition-opacity duration-500 ease-in-out opacity-100">
-                                    <Commentary data={livedata} />
+                                    <Commentary data={livedata} balldata={ballevent} />
                                 </div>
                             )}
 
                             {activeTab === "scorecard" && (
                                 <div className="transition-opacity duration-500 ease-in-out opacity-100">
-                                    <Scorecard />
+                                    <Scorecard data={livedata}/>
                                 </div>
                             )}
 
 
                             {activeTab === "info" && (
                                 <div className="transition-opacity duration-500 ease-in-out opacity-100">
-                                    <Info data={cdata} />
+                                    <Info data={livedata}  />
                                 </div>
                             )}
 
@@ -172,22 +161,9 @@ const MatchDetailView = () => {
 
                     </div>
 
-
-
-
-
-
-
                 </div>
-
                 <FbConnect />
-
-
-
-
             </div>
-
-
         </div>
     )
 }
