@@ -36,11 +36,8 @@ const MatchDetailView = () => {
     };
 
 
-    
-  
-
     useEffect(() => {
-        const ws = new WebSocket(`wss://webhook.entitysport.com:8087/connect?token=${token}`)
+        const ws = new WebSocket(`ws://localhost:8000`)
         ws.onopen = () => {
             console.log('WebSocket connection established');
         };
@@ -143,7 +140,7 @@ const MatchDetailView = () => {
 
                             {activeTab === "squad" && (
                                 <div className="transition-opacity duration-500 ease-in-out opacity-100">
-                                    <Squad />
+                                    <Squad data={livedata} />
                                 </div>
                             )}
 

@@ -472,7 +472,7 @@ const HomeScroller = () => {
 
     useEffect = () => {
 
-        axios.get('https://rest.entitysport.com/exchange/matches/?token=91e89bd6c7b1f611304ba0f6faf45fd3&date=2024-11-04_2024-11-07&timezone=+5:30&&paged=1&per_page=50')
+        axios.get('https://rest.entitysport.com/exchange/matches/?token=91e89bd6c7b1f611304ba0f6faf45fd3&date=2024-11-04_2024-11-07&timezone=+5:30&&paged=1&per_page=100')
             .then((res) => {
 
                 console.log(res);
@@ -507,8 +507,6 @@ const HomeScroller = () => {
                     livematch.length === 0 ? "" : <HomeScrollCard data={livematch} />
                 }
 
-
-                {/* <HomeScrollCard/> */}
 
 
 

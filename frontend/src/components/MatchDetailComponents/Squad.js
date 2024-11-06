@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Squad = () => {
+const Squad = ({ data }) => {
   return (
     <div>
 
@@ -12,8 +12,8 @@ const Squad = () => {
         <div className=' w-full'>
 
           <div className='w-full flex justify-center gap-2   '>
-            <img src='/ind.png' className='w-12 h-12 border-b rounded-full' />
-            <p className='pt-3 text-lg font-medium uppercase '>India</p>
+            <img src={data?.response.match_info.teama.logo_url} className='w-12 h-12 border-b rounded-full' />
+            <p className='pt-3 text-lg font-medium uppercase '>{data?.response.match_info.teama.name}</p>
           </div>
 
 
@@ -29,44 +29,33 @@ const Squad = () => {
             <p className='text-center  underline font-medium text-base mb-2'>Squads</p>
 
 
-            <div class="flex gap-4 border-b pt-1 pb-2.5  items-center">
-              <img
-                src="/suryakumar.png"
-                alt="Tania Andrew"
-                class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
-              />
+            {data?.response["match-playing11"].teama.squads.map((item, index) => (
 
-              <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
-                <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>Suryakumar Yadav</Link>
-                <span>Batter</span>
-              </p>
-            </div>
 
-            <div class="flex gap-4 border-b pt-1 pb-2.5  items-center">
-              <img
-                src="/suryakumar.png"
-                alt="Tania Andrew"
-                class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
-              />
 
-              <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
-                <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>Suryakumar Yadav</Link>
-                <span>Batter</span>
-              </p>
-            </div>
+              item.playing11 == "true" ? (
 
-            <div class="flex gap-4 border-b pt-1 pb-2.5  items-center">
-              <img
-                src="/suryakumar.png"
-                alt="Tania Andrew"
-                class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
-              />
+                <div key={index} class="flex gap-4 border-b pt-1 pb-2.5  items-center">
+                  <img
+                    src="/demoplayer.png"
+                    alt="Tania Andrew"
+                    class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
+                  />
 
-              <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
-                <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>Suryakumar Yadav</Link>
-                <span>Batter</span>
-              </p>
-            </div>
+                  <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+                    <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>{item.name}</Link>
+                    <span>{item.role}</span>
+                  </p>
+                </div>
+
+
+              ) : null
+            ))}
+
+
+
+
+
 
 
 
@@ -80,44 +69,34 @@ const Squad = () => {
             <p className='text-center  underline font-medium text-base mb-2'>Bench</p>
 
 
-            <div class="flex gap-4 border-b pt-1 pb-2.5  items-center">
-              <img
-                src="/suryakumar.png"
-                alt="Tania Andrew"
-                class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
-              />
+            {data?.response["match-playing11"].teama.squads.map((item, index) => (
 
-              <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
-                <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>Suryakumar Yadav</Link>
-                <span>Batter</span>
-              </p>
-            </div>
 
-            <div class="flex gap-4 border-b pt-1 pb-2.5  items-center">
-              <img
-                src="/suryakumar.png"
-                alt="Tania Andrew"
-                class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
-              />
 
-              <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
-                <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>Suryakumar Yadav</Link>
-                <span>Batter</span>
-              </p>
-            </div>
+              item.playing11 == "false" ? (
 
-            <div class="flex gap-4 border-b pt-1 pb-2.5  items-center">
-              <img
-                src="/suryakumar.png"
-                alt="Tania Andrew"
-                class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
-              />
 
-              <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
-                <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>Suryakumar Yadav</Link>
-                <span>Batter</span>
-              </p>
-            </div>
+                <div key={index} class="flex gap-4 border-b pt-1 pb-2.5  items-center">
+                  <img
+                    src="/demoplayer.png"
+                    alt="Tania Andrew"
+                    class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
+                  />
+
+                  <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+                    <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>{item.name}</Link>
+                    <span>{item.role}</span>
+                  </p>
+                </div>
+
+
+
+              ) : null
+            ))}
+
+
+
+
 
 
 
@@ -132,8 +111,8 @@ const Squad = () => {
         <div className=' md:mt-0 mt-6 w-full'>
 
           <div className='w-full flex justify-center gap-2   '>
-            <img src='/ban.png' className='w-12 h-12 border-b rounded-full' />
-            <p className='pt-3 text-lg font-medium uppercase '>Bangladesh</p>
+            <img src={data?.response.match_info.teamb.logo_url} className='w-12 h-12 border rounded-full' />
+            <p className='pt-3 text-lg font-medium uppercase '>{data?.response.match_info.teamb.name}</p>
           </div>
 
 
@@ -141,45 +120,29 @@ const Squad = () => {
           <div className='border mt-6 border-r-0 gap-y-2.5 grid-flow-row w-full md:p-8'>
             <p className='text-center  underline font-medium text-base mb-2'>Squads</p>
 
+            {data?.response["match-playing11"].teamb.squads.map((item, index) => (
 
-            <div class="flex gap-4 border-b pt-1 pb-2.5  items-center">
-              <img
-                src="/suryakumar.png"
-                alt="Tania Andrew"
-                class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
-              />
 
-              <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
-                <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>Suryakumar Yadav</Link>
-                <span>Batter</span>
-              </p>
-            </div>
 
-            <div class="flex gap-4 border-b pt-1 pb-2.5  items-center">
-              <img
-                src="/suryakumar.png"
-                alt="Tania Andrew"
-                class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
-              />
+              item.playing11 == "true" ? (
 
-              <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
-                <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>Suryakumar Yadav</Link>
-                <span>Batter</span>
-              </p>
-            </div>
+                <div key={index} class="flex gap-4 border-b pt-1 pb-2.5  items-center">
+                  <img
+                    src="/demoplayer.png"
+                    alt="Tania Andrew"
+                    class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
+                  />
 
-            <div class="flex gap-4 border-b pt-1 pb-2.5  items-center">
-              <img
-                src="/suryakumar.png"
-                alt="Tania Andrew"
-                class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
-              />
+                  <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+                    <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>{item.name}</Link>
+                    <span>{item.role}</span>
+                  </p>
+                </div>
 
-              <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
-                <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>Suryakumar Yadav</Link>
-                <span>Batter</span>
-              </p>
-            </div>
+
+              ) : null
+            ))}
+
 
 
 
@@ -191,44 +154,29 @@ const Squad = () => {
             <p className='text-center  underline font-medium text-base mb-2'>Bench</p>
 
 
-            <div class="flex gap-4 border-b pt-1 pb-2.5  items-center">
-              <img
-                src="/suryakumar.png"
-                alt="Tania Andrew"
-                class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
-              />
+            {data?.response["match-playing11"].teamb.squads.map((item, index) => (
 
-              <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
-                <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>Suryakumar Yadav</Link>
-                <span>Batter</span>
-              </p>
-            </div>
 
-            <div class="flex gap-4 border-b pt-1 pb-2.5  items-center">
-              <img
-                src="/suryakumar.png"
-                alt="Tania Andrew"
-                class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
-              />
 
-              <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
-                <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>Suryakumar Yadav</Link>
-                <span>Batter</span>
-              </p>
-            </div>
+              item.playing11 == "false" ? (
 
-            <div class="flex gap-4 border-b pt-1 pb-2.5  items-center">
-              <img
-                src="/suryakumar.png"
-                alt="Tania Andrew"
-                class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
-              />
+                <div key={index} class="flex gap-4 border-b pt-1 pb-2.5  items-center">
+                  <img
+                    src="/demoplayer.png"
+                    alt="Tania Andrew"
+                    class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
+                  />
 
-              <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
-                <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>Suryakumar Yadav</Link>
-                <span>Batter</span>
-              </p>
-            </div>
+                  <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+                    <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>{item.name}</Link>
+                    <span>{item.role}</span>
+                  </p>
+                </div>
+
+
+              ) : null
+            ))}
+
 
 
 

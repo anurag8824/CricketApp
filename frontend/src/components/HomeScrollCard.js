@@ -20,7 +20,7 @@ const HomeScrollCard = ({ data }) => {
                         </Link>
 
                         <Link to={`match-detail/${item.match_id}/commentary`}>
-                            <div class="px-4 py-2 pb-1 bg-white  items-center h-56 shadow-sm rounded-xl">
+                            <div class="px-4 py-2 pb-1 mb-2 bg-white  items-center h-56 shadow-sm rounded-xl">
                                 <p class="block text-red-600 mb-1 text-sm font-bold antialiased">
                                     <span class="animate-blink">●</span> {item.game_state_str}
                                 </p>
@@ -88,7 +88,7 @@ const HomeScrollCard = ({ data }) => {
                             </div>
                         </Link>
 
-                        <p class="block mt-1 px-2 text-xs font-medium mb-2 text-left text-yellow-500 transition-all">Upcoming</p>
+                        {/* <p class="block mt-1 px-2 text-xs font-medium mb-2 text-left text-yellow-500 transition-all">Upcoming</p> */}
                     </div>
 
                 ) : null
