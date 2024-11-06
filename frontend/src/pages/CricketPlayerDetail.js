@@ -1,10 +1,33 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import FbConnect from "../components/FbConnect"
+import axios from "axios"
 
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+
+
 
 const PlayerDetail = () => {
+
+    const [pdata, setPdata] = useState()
+
+    const Pid = useParams().id;
+    console.log(Pid ,"player id")
+
+
+    useEffect(()=>{
+        axios.post(`http://localhost:8050/api/v1/playerinfo` , {playerid:Pid})
+        .then((res)=>{
+            console.log(res,"player info")
+            setPdata(res.data.response);
+        })
+    },[])
+
+
+    
+    console.log(pdata,"opppppdatat")
+
+
     return (
         <div className='md:mx-20 mx-4 h-full'>
 
@@ -25,12 +48,12 @@ const PlayerDetail = () => {
 
                                 <div className=' text-center'>
                                     <img
-                                        src="suryakumar.png"
+                                        src="/suryakumar.png"
                                         alt="Tania Andrew"
                                         class="relative border inline-block h-full w-72 md:w-full rounded-full object-cover object-center"
                                     />
 
-                                    <p className='text-lg font-medium'>Suryakumar yadav</p>
+                                    <p className='text-lg font-medium'>{pdata.player.title}</p>
                                     <span>India</span>
 
 

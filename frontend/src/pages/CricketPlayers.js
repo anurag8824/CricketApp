@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 
 const CricketPlayers = () => {
     const [data, setData] = useState([])
+    const [ search , setSearch] = useState('')
 
     useEffect(() => {
         axios.get("http://localhost:8050/api/v1/allplayer")
@@ -17,12 +18,34 @@ const CricketPlayers = () => {
     }, [])
 
 
+    const handleSearch = () => {
+
+        axios.post(`http://localhost:8050/api/v1/searchplayer`, {search})
+            .then((res) => {
+                console.log(res, "send serach");
+                setData(res.data.msg.items)
+
+            })
+
+    }
+
+
     return (
         <div className='md:mx-20 mx-4 h-full'>
 
             <div className='flex px-1  py-10 justify-between'>
                 <p className='text-2xl  font-medium'>Cricket Players</p>
-                <input className=' bg-white rounded-full pr-6 pl-3 py-3 text-sm' placeholder='Search...' />
+                <input
+
+                    onKeyDown={(e) => {
+                        if (e.key == 'Enter') {
+                            handleSearch();
+                        }
+                    }}
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+
+                    className=' bg-white rounded-full pr-6 pl-3 py-3 text-sm' placeholder='Search...' />
             </div>
 
             <div className='flex gap-x-8'>
@@ -44,7 +67,10 @@ const CricketPlayers = () => {
                                     />
 
                                     <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
-                                        <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>{item.title}</Link>
+                                        <Link 
+                                        // to={`/cricket-player-detail/${item.pid}`}
+
+                                         className='cursor-pointer hover:underline'>{item.title}</Link>
                                         <span>{item.nationality}</span>
                                     </p>
                                 </div>
