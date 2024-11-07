@@ -1,8 +1,49 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+
+// import myAudio from '/FOUR.mp3'
 
 import { Link } from 'react-router-dom'
 
+
+
 const Commentary = ({ data, balldata }) => {
+
+  // const bdata = balldata.response.ball_event;
+
+  const [matchData, setMatchData] = useState(null);
+  const [ballEvent, setBallEvent] = useState(null);
+
+  // Define a mapping from ball event string to audio file
+  const audioMap = {
+    'four': '/FOUR.mp3',
+    '2': '/DOUBLE 2 RUN.mp3',
+    '0': '/ZERO RUN.mp3',
+    '0': '/ZERO RUN.mp3',
+
+  };
+
+  useEffect(() => {
+
+    const ballEventData = balldata
+    console.log(ballEventData,"ball daaaaaaata")
+
+    setBallEvent(ballEventData);
+    playAudio(ballEventData);
+
+  }, [])
+
+
+  // Play the specific audio based on ball event
+  const playAudio = (event) => {
+    const audioFile = audioMap[event];  // Look up the audio file based on event
+    if (audioFile) {
+        const audio = new Audio(audioFile);
+        audio.play();
+    } else {
+        console.log('No audio for this ball event');
+    }
+};
+
 
 
   const [view, setView] = useState('%');
@@ -11,6 +52,7 @@ const Commentary = ({ data, balldata }) => {
   const handleViewChange = (viewType) => {
     setView(viewType);
   };
+
 
   var Data = [...(data?.response.live.commentaries || [])].reverse()
   return (
@@ -65,6 +107,16 @@ const Commentary = ({ data, balldata }) => {
           {balldata?.response.ball_event
           }
         </div>
+
+
+{/* 
+        <div>
+          <p>{isPlaying ? 'Audio is playing' : 'Click to play audio'}</p>
+          <button onClick={handlePlay}>Play Audio</button>
+        </div> */}
+
+
+
 
       </div>
 
@@ -156,10 +208,10 @@ const Commentary = ({ data, balldata }) => {
                       <div className='flex gap-2'>
 
                         <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'> {Math.round((parseFloat(data?.response.live_odds.matchodds.teama.back) * 100) - 100).toString().padStart(2, '0')}</p>
-                        <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'> 
+                        <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
                           {data?.response.live_odds.matchodds.teama.lay ? Math.round((parseFloat(data?.response.live_odds.matchodds.teama.lay) * 100) - 100).toString().padStart(2, '0') : "0"}
-                          
-                          </p>
+
+                        </p>
 
                       </div>
 
@@ -432,9 +484,9 @@ const Commentary = ({ data, balldata }) => {
 
           <p className='py-2 gap-2 px-2'><span className='font-medium text-sm'>Partership:</span> {data?.response.live.live_inning.current_partnership.runs}({data?.response.live.live_inning.current_partnership.balls})</p>
 
-          { data?.response.live.live_inning.last_wicket.name ?
+          {data?.response.live.live_inning.last_wicket.name ?
 
-          <p className='pb-2 px-2'><span className='font-medium text-sm'>Last Wickets:</span> {data?.response.live.live_inning.last_wicket.name}{data?.response.live.live_inning.last_wicket.how_out}{data?.response.live.live_inning.last_wicket.runs}({data?.response.live.live_inning.last_wicket.balls}) ‐ {data?.response.live.live_inning.last_wicket.score_at_dismissal}/{data?.response.live.live_inning.last_wicket.number} in {data?.response.live.live_inning.last_wicket.overs_at_dismissal}ov</p> : null
+            <p className='pb-2 px-2'><span className='font-medium text-sm'>Last Wickets:</span> {data?.response.live.live_inning.last_wicket.name}{data?.response.live.live_inning.last_wicket.how_out}{data?.response.live.live_inning.last_wicket.runs}({data?.response.live.live_inning.last_wicket.balls}) ‐ {data?.response.live.live_inning.last_wicket.score_at_dismissal}/{data?.response.live.live_inning.last_wicket.number} in {data?.response.live.live_inning.last_wicket.overs_at_dismissal}ov</p> : null
 
           }
 

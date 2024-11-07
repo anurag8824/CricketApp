@@ -10,6 +10,8 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios'
 import { useMyContext } from './MyProvider';
 
+import io from "socket.io-client";
+
 
 
 
@@ -37,15 +39,42 @@ const MatchDetailView = () => {
 
 
     useEffect(() => {
-        const ws = new WebSocket(`wss://nexifybackend.infayou.shop`)
-        ws.onopen = () => {
-            console.log('WebSocket connection established');
-        };
-        ws.onmessage = (event) => {
+        // const ws = new WebSocket(`ws://localhost:8000`)
+
+        const socket = io("https://nexifybackend.infayou.shop"); // Adjust URL as needed
+        // ws.onopen = () => {
+        //     console.log('WebSocket connection established');
+        // };
+
+        socket.on("connect", () => {
+            console.log("Connected to the Socket.IO server");
+        });
+
+        // ws.onmessage = (event) => {
 
             
-            const data = JSON.parse(event.data)
-            // console.log('Message received:', data);
+        //     const data = JSON.parse(event.data)
+        //     // console.log('Message received:', data);
+
+        //     if (data.response.match_id == matchId) {
+        //         console.log(data, "data");
+
+        //         console.log(data.response?.ball_event, "hhhhhhhhh")
+
+        //         if (data.response?.ball_event
+        //         ) {
+        //             setBallevent(data);
+
+        //             console.log(ballevent, "jhhh");
+        //         } else {
+        //             setLivedata(data);
+        //         }
+        //     }
+        // };
+
+        socket.on("scoreUpdate", (data) => {
+            // console.log("Received score update:", data);
+            // Process and display score data on frontend as needed
 
             if (data.response.match_id == matchId) {
                 console.log(data, "data");
@@ -61,12 +90,16 @@ const MatchDetailView = () => {
                     setLivedata(data);
                 }
             }
-        };
+        });
 
-        ws.onerror = (err) => {
-            console.log('Error in connection to socket:', err);
+        // ws.onerror = (err) => {
+        //     console.log('Error in connection to socket:', err);
+        // };
+        return () => {
+            socket.disconnect();
+            console.log("Socket.IO connection closed");
         };
-    }, [])
+    },[])
 
 
     // context data 
