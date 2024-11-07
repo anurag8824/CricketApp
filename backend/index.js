@@ -67,7 +67,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIO(server, {
     cors: {
-        origin: "*",
+        origin: "https://nexify.infayou.shop",
         methods: ["GET", "POST"],
     },
 });
