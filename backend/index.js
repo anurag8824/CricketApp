@@ -62,6 +62,7 @@ const token = "91e89bd6c7b1f611304ba0f6faf45fd3";
 const ENTITY_WS_URL = `ws://webhook.entitysport.com:8087/connect?token=${token}`
 const express = require("express");
 const http = require("http");
+const cors = require("cors")
 
 const app = express();
 const server = http.createServer(app);
@@ -71,7 +72,7 @@ const io = socketIO(server, {
         methods: ["GET", "POST"],
     },
 });
-
+app.use(cors())
 const entityWs = new websocket(ENTITY_WS_URL);
 let lastKnownScoreData = null;
 
