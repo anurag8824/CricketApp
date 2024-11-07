@@ -10,7 +10,7 @@ const CricketPlayers = () => {
     const [ search , setSearch] = useState('')
 
     useEffect(() => {
-        axios.get("http://localhost:8050/api/v1/allplayer")
+        axios.get("https://websocket.infayou.shop/api/v1/allplayer")
             .then((res) => {
                 console.log(res, "allplayers");
                 setData(res.data.msg.items)
@@ -20,7 +20,7 @@ const CricketPlayers = () => {
 
     const handleSearch = () => {
 
-        axios.post(`http://localhost:8050/api/v1/searchplayer`, {search})
+        axios.post(`https://websocket.infayou.shop/api/v1/searchplayer`, {search})
             .then((res) => {
                 console.log(res, "send serach");
                 setData(res.data.msg.items)
@@ -68,7 +68,7 @@ const CricketPlayers = () => {
 
                                     <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
                                         <Link 
-                                        // to={`/cricket-player-detail/${item.pid}`}
+                                        to={`/cricket-player-detail/${item.pid}`}
 
                                          className='cursor-pointer hover:underline'>{item.title}</Link>
                                         <span>{item.nationality}</span>

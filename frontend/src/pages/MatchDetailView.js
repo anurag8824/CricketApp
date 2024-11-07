@@ -37,11 +37,13 @@ const MatchDetailView = () => {
 
 
     useEffect(() => {
-        const ws = new WebSocket(`ws://localhost:8000`)
+        const ws = new WebSocket(`wss://nexifybackend.infayou.shop`)
         ws.onopen = () => {
             console.log('WebSocket connection established');
         };
         ws.onmessage = (event) => {
+
+            
             const data = JSON.parse(event.data)
             // console.log('Message received:', data);
 
@@ -59,6 +61,10 @@ const MatchDetailView = () => {
                     setLivedata(data);
                 }
             }
+        };
+
+        ws.onerror = (err) => {
+            console.log('Error in connection to socket:', err);
         };
     }, [])
 
