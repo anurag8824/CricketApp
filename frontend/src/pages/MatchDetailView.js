@@ -66,6 +66,10 @@ const MatchDetailView = () => {
         ws.onerror = (err) => {
             console.log('Error in connection to socket:', err);
         };
+        return () => {
+        ws.close();
+        console.log('WebSocket connection closed');
+    };
     }, [])
 
 
