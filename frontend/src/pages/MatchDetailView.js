@@ -37,7 +37,7 @@ const MatchDetailView = () => {
 
 
     useEffect(() => {
-        const ws = new WebSocket("ws://nexifybackend.infayou.shop")
+        const ws = new WebSocket("wss://nexifybackend.infayou.shop")
         ws.onopen = () => {
             console.log('WebSocket connection established');
         };
