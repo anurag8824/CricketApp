@@ -59,7 +59,7 @@
 const socketIO = require("socket.io");
 const websocket = require("ws");
 const token = "91e89bd6c7b1f611304ba0f6faf45fd3";
-const ENTITY_WS_URL = `wss://webhook.entitysport.com:8087/connect?token=${token}`
+const ENTITY_WS_URL = `ws://webhook.entitysport.com:8087/connect?token=${token}`
 const express = require("express");
 const http = require("http");
 const cors = require("cors")
@@ -68,11 +68,11 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIO(server, {
     cors: {
-        origin: "'https://frontend-cricket-app.vercel.app'",
+        origin: "https://frontend-cricket-app.vercel.app",
         methods: ["GET", "POST"],
     },
 });
-app.use(cors({ origin: "'https://frontend-cricket-app.vercel.app'" }))
+app.use(cors({ origin: "https://frontend-cricket-app.vercel.app" }))
 // const entityWs = new websocket(ENTITY_WS_URL);
 let lastKnownScoreData = null;
 
