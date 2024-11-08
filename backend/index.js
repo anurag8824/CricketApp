@@ -59,7 +59,7 @@
 const socketIO = require("socket.io");
 const websocket = require("ws");
 const token = "91e89bd6c7b1f611304ba0f6faf45fd3";
-const ENTITY_WS_URL = `ws://webhook.entitysport.com:8087/connect?token=${token}`
+const ENTITY_WS_URL = `wss://webhook.entitysport.com:8087/connect?token=${token}`
 const express = require("express");
 const http = require("http");
 const cors = require("cors")
@@ -68,11 +68,11 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIO(server, {
     cors: {
-        origin: "*",
+        origin: "'https://frontend-cricket-app.vercel.app'",
         methods: ["GET", "POST"],
     },
 });
-app.use(cors({origin:"*"}))
+app.use(cors({ origin: "'https://frontend-cricket-app.vercel.app'" }))
 // const entityWs = new websocket(ENTITY_WS_URL);
 let lastKnownScoreData = null;
 
@@ -92,8 +92,8 @@ io.on("connection", (socket) => {
     socket.on("error", (err) => {
         console.error("Error in Socket.IO connection:", err);
     });
-   
-    
+
+
 });
 
 // Listen for messages from EntitySport WebSocket
@@ -121,9 +121,10 @@ io.on("connection", (socket) => {
 
 // Start the server on port 8000
 
-app.get("/",(req,res)=>{
-res.send("API Socket")
+app.get("/", (req, res) => {
+    res.send("API Socket")
 })
+
 server.listen(8000, () => {
     console.log("Socket.IO server running on port 8000");
 });
