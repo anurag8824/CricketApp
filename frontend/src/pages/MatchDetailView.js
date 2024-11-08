@@ -41,7 +41,7 @@ const MatchDetailView = () => {
     useEffect(() => {
         // const ws = new WebSocket(`ws://localhost:8000`)
 
-        const socket = io("htpps://cricket-app-eight.vercel.app"); // Adjust URL as needed
+        const socket = io("https://cricket-app-eight.vercel.app"); // Adjust URL as needed
         // ws.onopen = () => {
         //     console.log('WebSocket connection established');
         // }
