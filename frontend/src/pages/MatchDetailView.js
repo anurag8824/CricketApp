@@ -106,7 +106,7 @@ const MatchDetailView = () => {
 
     useEffect(() => {
 
-        axios.post("http://nexifybackend.infayou/api/v1/pre/data", { matchid: matchId })
+        axios.post("https://cricket-static-data.vercel.app/api/v1/pre/data", { matchid: matchId })
             .then((res) => {
                 console.log(res, "prev datata abtaoned")
                 const data = res.data;

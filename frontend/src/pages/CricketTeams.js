@@ -12,7 +12,7 @@ const CricketTeams = () => {
 
     useEffect(() => {
 
-        axios.get("http://nexifybackend.infayou/api/v1/allteam")
+        axios.get("https://cricket-static-data.vercel.app/api/v1/allteam")
             .then((res) => {
                 console.log(res, "team list");
                 setData(res.data.msg.items)
@@ -74,7 +74,7 @@ const CricketTeams = () => {
     }, [])
     const handleSearch = () => {
 
-        axios.post(`http://nexifybackend.infayou/api/v1/searchteam`, {search})
+        axios.post(`https://cricket-static-data.vercel.app/api/v1/searchteam`, {search})
             .then((res) => {
                 console.log(res, "send serach");
                 setData(res.data.msg.items)

@@ -16,7 +16,7 @@ const PlayerDetail = () => {
 
 
     useEffect(() => {
-        axios.post(`http://nexifybackend.infayou/api/v1/playerinfo`, { playerid: Pid })
+        axios.post(`https://cricket-static-data.vercel.app/api/v1/playerinfo`, { playerid: Pid })
             .then((res) => {
                 console.log(res, "player infoooo")
                 const pdata = res.data.response;
