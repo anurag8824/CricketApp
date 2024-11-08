@@ -10,7 +10,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios'
 import { useMyContext } from './MyProvider';
 
-import {io} from "socket.io-client";
+import { io } from "socket.io-client";
 
 
 
@@ -41,7 +41,7 @@ const MatchDetailView = () => {
     useEffect(() => {
         // const ws = new WebSocket(`ws://localhost:8000`)
 
-        const socket = io("https://cricket-app-eight.vercel.app"); // Adjust URL as needed
+        const socket = io("http://websocket.infayou.shop"); // Adjust URL as needed
         // ws.onopen = () => {
         //     console.log('WebSocket connection established');
         // }
@@ -52,7 +52,7 @@ const MatchDetailView = () => {
 
         // ws.onmessage = (event) => {
 
-            
+
         //     const data = JSON.parse(event.data)
         //     // console.log('Message received:', data);
 
@@ -91,7 +91,7 @@ const MatchDetailView = () => {
                 }
             }
         });
-        
+
 
         // ws.onerror = (err) => {
         //     console.log('Error in connection to socket:', err);
@@ -101,7 +101,22 @@ const MatchDetailView = () => {
             socket.disconnect();
             console.log("Socket.IO connection closed");
         };
-    },[])
+    }, [])
+
+
+    useEffect(() => {
+
+        axios.post("http://nexifybackend.infayou/api/v1/pre/data", { matchid: matchId })
+            .then((res) => {
+                console.log(res, "prev datata abtaoned")
+                const data = res.data;
+                setLivedata(data);
+
+            }).catch((err) => {
+                console.log(err, "error abta")
+            })
+
+    }, [])
 
 
     // context data 
@@ -122,13 +137,13 @@ const MatchDetailView = () => {
 
 
 
-                
+
 
                 {/* <input className=' bg-white rounded-full pr-6 pl-3 py-3 text-sm' placeholder='Search...' /> */}
             </div>
 
             <div className='flex gap-x-8 w-full'>
-                
+
                 <div className='border mb-4 bg-white rounded-xl lg:w-3/4 w-full'>
 
                     <div className="w-full max-w-4xl mx-auto mt-8">
@@ -168,14 +183,14 @@ const MatchDetailView = () => {
 
                             {activeTab === "scorecard" && (
                                 <div className="transition-opacity duration-500 ease-in-out opacity-100">
-                                    <Scorecard data={livedata}/>
+                                    <Scorecard data={livedata} />
                                 </div>
                             )}
 
 
                             {activeTab === "info" && (
                                 <div className="transition-opacity duration-500 ease-in-out opacity-100">
-                                    <Info data={livedata}  />
+                                    <Info data={livedata} />
                                 </div>
                             )}
 

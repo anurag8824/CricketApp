@@ -468,27 +468,36 @@ import HomeScrollCard from './HomeScrollCard'
 
 const HomeScroller = () => {
     const [livematch, setLivematch] = useState([])
-    const [schedule , setSchedule] = useState([])
+    const [schedule, setSchedule] = useState([])
+    const [complete, setComplete] = useState([])
 
     useEffect = () => {
 
-        axios.get('https://rest.entitysport.com/exchange/matches/?token=91e89bd6c7b1f611304ba0f6faf45fd3&date=2024-11-07_2024-11-09&timezone=+5:30&&paged=1&per_page=100')
+        axios.get('https://rest.entitysport.com/exchange/matches/?token=91e89bd6c7b1f611304ba0f6faf45fd3&date=2024-11-08_2024-11-11&timezone=+5:30&&paged=1&per_page=100')
             .then((res) => {
 
                 console.log(res);
                 const dataFromApi = res.data.response.items
                 const filteredData = dataFromApi.filter(item => item.status_str
-                    === 'Live' &&( item.competition.category === "domestic"|| item.competition.category === "international" || item.competition.category === "women"));
+                    === 'Live' && (item.competition.category === "international" || item.competition.category === "women"));
+
 
                 setLivematch(filteredData)
+                // item.competition.category === ""||
 
-                console.log(filteredData,"filtrr")
+                console.log(filteredData, "filtrr")
 
 
-                const upcomingMatch = dataFromApi.filter(item => item.status_str === "Scheduled");
-                console.log(upcomingMatch,"uppp")
+                const upcomingMatch = dataFromApi.filter(item => item.status_str === "Scheduled" && (item.competition.category === "international" || item.competition.category === "women"));
+                console.log(upcomingMatch, "uppp")
 
                 setSchedule(upcomingMatch)
+
+
+                const completedMatch = dataFromApi.filter(item => item.status_str === "Completed" && (item.competition.category === "international" || item.competition.category === "women"));
+                console.log(completedMatch, "compled")
+
+                setComplete(completedMatch)
 
 
 
@@ -502,10 +511,19 @@ const HomeScroller = () => {
 
     }
     return (
-        <div>
-                {
-                    livematch.length === 0 ? "" : <HomeScrollCard data={livematch} />
-                }
+        <div className='md:flex md:space-x-4 md:overflow-x-scroll mx-auto   custom-scrollbar overflow-x-hidden'>
+            {
+                livematch.length === 0 ? "" : <HomeScrollCard data={livematch} />
+            }
+
+            {
+                schedule.length === 0 ? "" : <HomeScrollCard data={schedule} />
+            }
+
+            {
+                complete.length === 0 ? "" : <HomeScrollCard data={complete} />
+            }
+
 
 
 

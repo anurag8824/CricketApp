@@ -25,10 +25,15 @@ const Commentary = ({ data, balldata }) => {
     'six': '/SIX.mp3',
     "Caught": '/WICKET.mp3',
     'Bowled': '/WICKET.mp3',
+    "LBW": '/WICKET.mp3',
     'wide': '/WIDEE.mp3',
     'no ball': '/NO BALL.mp3',
     'Over': '/OVER.mp3',
     'New Batter': "",
+    'Ball in Air': "",
+    'Match End': "",
+    "bye + 1 run": "",
+    "Innings Break": "",
   };
 
   useEffect(() => {
@@ -89,7 +94,7 @@ const Commentary = ({ data, balldata }) => {
 
 
 
-  const [view, setView] = useState('%');
+  const [view, setView] = useState('odds');
 
   // Click handlers for switching views
   const handleViewChange = (viewType) => {
@@ -151,7 +156,7 @@ const Commentary = ({ data, balldata }) => {
             <div className='absolute top-2 right-4 text-white text-base cursor-pointer' onClick={handleClick}>
               {isMuted ? <FaVolumeMute style={{ fontSize: '16px' }} /> : <FaVolumeUp style={{ fontSize: '16px' }} />}
             </div>
-            {balldata?.response.ball_event}
+            {balldata?.response.ball_event ? balldata?.response.ball_event : data?.response.live.game_state_str}
           </div>
         </div>
 
@@ -177,13 +182,6 @@ const Commentary = ({ data, balldata }) => {
 
           {/* Buttons for toggling views */}
           <div className=" font-medium md:text-base text-xs gap-4  flex">
-            <button
-              onClick={() => handleViewChange('%')}
-              className={`md:px-4 px-2 md:py-1 py-1 rounded   ${view === '%' ? 'bg-blue-950 text-white' : 'bg-gray-300 text-blue-950'
-                }`}
-            >
-              % View
-            </button>
 
             <button
               onClick={() => handleViewChange('odds')}
@@ -192,6 +190,16 @@ const Commentary = ({ data, balldata }) => {
             >
               Odds View
             </button>
+
+            <button
+              onClick={() => handleViewChange('%')}
+              className={`md:px-4 px-2 md:py-1 py-1 rounded   ${view === '%' ? 'bg-blue-950 text-white' : 'bg-gray-300 text-blue-950'
+                }`}
+            >
+              % View
+            </button>
+
+
 
           </div>
 
@@ -393,7 +401,7 @@ const Commentary = ({ data, balldata }) => {
 
               <tbody>
 
-                {data?.response.live.batsmen.map((item, index) => (
+                {data?.response.live?.batsmen.map((item, index) => (
 
                   item ? (
 
@@ -473,36 +481,40 @@ const Commentary = ({ data, balldata }) => {
 
               <tbody>
 
-                <tr className="border-b border-gray-200 text-center  align-text-top dark:border-gray-700">
+                {data?.response.live.bowlers ?
 
-                  <td scope='row' className='  text-blue-600'>
-                    <Link className='hover:underline text-sm'>{data?.response.live.bowlers[0].name}</Link>
+                  <tr className="border-b border-gray-200 text-center  align-text-top dark:border-gray-700">
 
-                  </td>
+                    <td scope='row' className='  text-blue-600'>
+                      <Link className='hover:underline text-sm'>{data?.response.live.bowlers ? data?.response.live.bowlers[0].name : ""}</Link>
 
-                  <td scope='row' class="">
-                    {data?.response.live.bowlers[0].overs}
-                  </td>
+                    </td>
 
-                  <td className=''>
-                    {data?.response.live.bowlers[0].maidens}
-                  </td>
+                    <td scope='row' class="">
+                      {data?.response.live.bowlers[0]?.overs}
+                    </td>
 
-                  <td className=''>
-                    {data?.response.live.bowlers[0].runs_conceded}
-                  </td>
+                    <td className=''>
+                      {data?.response.live.bowlers[0]?.maidens}
+                    </td>
 
-                  <td className=''>
-                    {data?.response.live.bowlers[0].wickets}
-                  </td>
+                    <td className=''>
+                      {data?.response.live.bowlers[0]?.runs_conceded}
+                    </td>
 
-                  <td className=''>
-                    {data?.response.live.bowlers[0].econ}
-                  </td>
+                    <td className=''>
+                      {data?.response.live.bowlers[0]?.wickets}
+                    </td>
+
+                    <td className=''>
+                      {data?.response.live.bowlers[0]?.econ}
+                    </td>
 
 
 
-                </tr>
+                  </tr>
+
+                  : ""}
 
 
 
@@ -603,6 +615,7 @@ const Commentary = ({ data, balldata }) => {
             <div className='flex mt-4 '>
               <p className='md:w-72 w-fit pr-4 border-r font-medium '></p>
 
+              {/* 
               <div className='ml-4'>
 
                 <p>Mehdi <span className='pl-4'>55(107)</span></p>
@@ -611,7 +624,7 @@ const Commentary = ({ data, balldata }) => {
                 <p>Mehidy Hasan Miraz <span className='pl-4'>55(107)</span></p>
 
 
-              </div>
+              </div> */}
 
 
 

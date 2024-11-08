@@ -68,11 +68,11 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIO(server, {
     cors: {
-        origin: "https://frontend-cricket-app.vercel.app",
+        origin: "*",
         methods: ["GET", "POST"],
     },
 });
-app.use(cors({ origin: "https://frontend-cricket-app.vercel.app" }))
+app.use(cors({ origin: "*" }))
 const entityWs = new websocket(ENTITY_WS_URL);
 let lastKnownScoreData = null;
 

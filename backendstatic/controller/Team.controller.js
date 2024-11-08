@@ -97,7 +97,21 @@ const PlayerInformation = async (req, res) => {
 }
 
 
+const PerivousData = async(req,res)=>{
+    try {
+        const matchid = req.body.matchid;
+        if(!matchid){
+         return res.json({msg:"Matchid not found"})
+      }
+      axios.get(`https://rest.entitysport.com/exchange/matches/${matchid}/info?token=${token}`).then((resp)=>{
+         res.json(resp.data);
+      })
+    } catch (error) {
+       res.json({msg:"Internal error: "}) 
+    }
+}
 
 
 
-module.exports = { TeamData, PlayerData, TeamSerach, PlayerSerach, PlayerInformation }
+
+module.exports = { TeamData, PlayerData, TeamSerach, PlayerSerach, PlayerInformation ,PerivousData}

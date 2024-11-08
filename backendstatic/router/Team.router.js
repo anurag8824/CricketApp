@@ -9,7 +9,7 @@ router.get("/allplayer", TeamData.PlayerData )
 router.post("/searchteam",TeamData.TeamSerach)
 router.post("/searchplayer",TeamData.PlayerSerach)
 router.post("/playerinfo",TeamData.PlayerInformation)
-
+router.post("/pre/data",TeamData.PerivousData)
 
 
 

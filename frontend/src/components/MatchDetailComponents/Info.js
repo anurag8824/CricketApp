@@ -96,7 +96,7 @@ const Info = ({ data }) => {
 
 
       </div>
-
+{/* 
       <div>
 
         <p className='font-normal   py-3 font-m text-xl   w-full md:w-1/2'>
@@ -149,7 +149,7 @@ const Info = ({ data }) => {
 
 
       </div>
-
+ */}
 
       <div>
         <p className='font-normal   py-3 font-m text-xl   w-full md:w-1/2'>
@@ -210,7 +210,7 @@ const Info = ({ data }) => {
           <p className='font-normal text-base  py-3 pl-3  w-full md:w-1/2'>
 
 
-           {data?.response.match_info.weather.temp}°C</p>
+           {data?.response.match_info.weather.temp}</p>
         </div>
 
 
@@ -232,7 +232,7 @@ const Info = ({ data }) => {
 
 
 
-            {data?.response.match_info.weather.humidity}%</p>
+            {data?.response.match_info.weather.humidity}</p>
         </div>
 
 
@@ -245,7 +245,7 @@ const Info = ({ data }) => {
 
 
 
-            {data?.response.match_info.weather.wind_speed} km/h</p>
+            {data?.response.match_info.weather.wind_speed}</p>
         </div>
 
 

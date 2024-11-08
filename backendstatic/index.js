@@ -6,7 +6,7 @@ const cors = require("cors");
 const app = express();
 const Team = require("./router/Team.router.js")
 app.use(express.json())
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors({ origin: "*" }));
 
 app.use("/api/v1",Team)
 

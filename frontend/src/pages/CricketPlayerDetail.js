@@ -16,7 +16,7 @@ const PlayerDetail = () => {
 
 
     useEffect(() => {
-        axios.post(`https://websocket.infayou.shop/api/v1/playerinfo`, { playerid: Pid })
+        axios.post(`http://nexifybackend.infayou/api/v1/playerinfo`, { playerid: Pid })
             .then((res) => {
                 console.log(res, "player infoooo")
                 const pdata = res.data.response;

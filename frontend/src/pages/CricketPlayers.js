@@ -10,7 +10,7 @@ const CricketPlayers = () => {
     const [ search , setSearch] = useState('')
 
     useEffect(() => {
-        axios.get("https://websocket.infayou.shop/api/v1/allplayer")
+        axios.get("http://nexifybackend.infayou/api/v1/allplayer")
             .then((res) => {
                 console.log(res, "allplayers");
                 setData(res.data.msg.items)
@@ -20,7 +20,7 @@ const CricketPlayers = () => {
 
     const handleSearch = () => {
 
-        axios.post(`https://websocket.infayou.shop/api/v1/searchplayer`, {search})
+        axios.post(`http://nexifybackend.infayou/api/v1/searchplayer`, {search})
             .then((res) => {
                 console.log(res, "send serach");
                 setData(res.data.msg.items)

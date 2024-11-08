@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const HomeScrollCard = ({ data }) => {
     return (
-        <div className='md:flex md:space-x-4 md:overflow-x-scroll mx-auto   custom-scrollbar overflow-x-hidden'>
+        <div className='md:flex md:space-x-4'>
 
 
 
@@ -19,10 +19,11 @@ const HomeScrollCard = ({ data }) => {
                             {item.competition.title}
                         </Link>
 
-                        <Link to={`match-detail/${item.match_id}/commentary`}>
+                        <a href={`match-detail/${item.match_id}/commentary`}>
                             <div class="px-4 py-2 pb-1 mb-2 bg-white  items-center h-56 shadow-sm rounded-xl">
                                 <p class="block text-red-600 mb-1 text-sm font-bold antialiased">
-                                    <span class="animate-blink">●</span> {item.game_state_str}
+                                    <span class="animate-blink">●</span> {item.
+                                        status_str  === "Scheduled"? "Upcoming":item.status_str }
                                 </p>
 
                                 <div class="mb-1 flex items-center justify-between">
@@ -66,7 +67,7 @@ const HomeScrollCard = ({ data }) => {
 
                                         </div>
                                         <h6 class="block font-sans text-base font-semibold leading-relaxed tracking-normal text-blue-900 antialiased">
-                                        {item.teamb.scores_full}
+                                            {item.teamb.scores_full}
                                         </h6>
                                     </div>
 
@@ -86,7 +87,7 @@ const HomeScrollCard = ({ data }) => {
                                     </div>
                                 </div>
                             </div>
-                        </Link>
+                        </a>
 
                         {/* <p class="block mt-1 px-2 text-xs font-medium mb-2 text-left text-yellow-500 transition-all">Upcoming</p> */}
                     </div>

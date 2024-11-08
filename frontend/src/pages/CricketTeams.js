@@ -12,7 +12,7 @@ const CricketTeams = () => {
 
     useEffect(() => {
 
-        axios.get("https://websocket.infayou.shop/api/v1/allteam")
+        axios.get("http://nexifybackend.infayou/api/v1/allteam")
             .then((res) => {
                 console.log(res, "team list");
                 setData(res.data.msg.items)
@@ -74,7 +74,7 @@ const CricketTeams = () => {
     }, [])
     const handleSearch = () => {
 
-        axios.post(`https://websocket.infayou.shop/api/v1/searchteam`, {search})
+        axios.post(`http://nexifybackend.infayou/api/v1/searchteam`, {search})
             .then((res) => {
                 console.log(res, "send serach");
                 setData(res.data.msg.items)
