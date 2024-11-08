@@ -73,7 +73,7 @@ const io = socketIO(server, {
     },
 });
 app.use(cors({ origin: "https://frontend-cricket-app.vercel.app" }))
-// const entityWs = new websocket(ENTITY_WS_URL);
+const entityWs = new websocket(ENTITY_WS_URL);
 let lastKnownScoreData = null;
 
 // Listen for connections from frontend clients using Socket.IO
