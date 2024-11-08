@@ -92,7 +92,7 @@ io.on("connection", (socket) => {
     socket.on("error", (err) => {
         console.error("Error in Socket.IO connection:", err);
     });
-    ws.on('error', (err) => {
+    socket.on('error', (err) => {
         console.error('Error in WebSocket connection:', err);
     });
 });
