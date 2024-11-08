@@ -97,27 +97,27 @@ io.on("connection", (socket) => {
 });
 
 // Listen for messages from EntitySport WebSocket
-// entityWs.on("open", () => {
-//     console.log("Connected to EntitySport WebSocket API");
-// });
+entityWs.on("open", () => {
+    console.log("Connected to EntitySport WebSocket API");
+});
 
-// entityWs.on("message", (data) => {
-//     const parsedData = JSON.parse(data);
+entityWs.on("message", (data) => {
+    const parsedData = JSON.parse(data);
 
-//     // Update the cached data
-//     lastKnownScoreData = parsedData;
+    // Update the cached data
+    lastKnownScoreData = parsedData;
 
-//     // Broadcast the new data to all connected frontend clients using Socket.IO
-//     io.emit("scoreUpdate", parsedData);
-// });
+    // Broadcast the new data to all connected frontend clients using Socket.IO
+    io.emit("scoreUpdate", parsedData);
+});
 
-// entityWs.on("close", () => {
-//     console.log("EntitySport WebSocket closed");
-// });
+entityWs.on("close", () => {
+    console.log("EntitySport WebSocket closed");
+});
 
-// entityWs.on("error", (error) => {
-//     console.error("EntitySport WebSocket error:", error);
-// });
+entityWs.on("error", (error) => {
+    console.error("EntitySport WebSocket error:", error);
+});
 
 // Start the server on port 8000
 
