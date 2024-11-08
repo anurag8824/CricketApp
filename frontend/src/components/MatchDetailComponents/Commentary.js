@@ -1,48 +1,91 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 // import myAudio from '/FOUR.mp3'
 
 import { Link } from 'react-router-dom'
+import { FaVolumeMute, FaVolumeUp } from "react-icons/fa";
 
 
 
 const Commentary = ({ data, balldata }) => {
-
-  // const bdata = balldata.response.ball_event;
-
+  const [isMuted, setIsMuted] = useState(true);
+  const audioRef = useRef(null);
+  const [userInteracted, setUserInteracted] = useState(false);
   const [matchData, setMatchData] = useState(null);
   const [ballEvent, setBallEvent] = useState(null);
 
   // Define a mapping from ball event string to audio file
   const audioMap = {
-    'four': '/FOUR.mp3',
+    'Ball Chalu': '/BALL START BALL.mp3',
+    "dot": '/ZERO RUN.mp3',
+    '1': '/SINGLE ONE RUN.mp3',
     '2': '/DOUBLE 2 RUN.mp3',
-    '0': '/ZERO RUN.mp3',
-    '0': '/ZERO RUN.mp3',
-
+    '3': '/tHREE RUN.mp3',
+    'four': '/FOUR.mp3',
+    'six': '/SIX.mp3',
+    "Caught": '/WICKET.mp3',
+    'Bowled': '/WICKET.mp3',
+    'wide': '/WIDEE.mp3',
+    'no ball': '/NO BALL.mp3',
+    'Over': '/OVER.mp3',
+    'New Batter': "",
   };
 
   useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        if (audioRef.current) {
+          audioRef.current.pause();
+        }
+      } else {
+        if (!isMuted && userInteracted && audioRef.current) {
+          audioRef.current.play().catch((err) => console.error('Audio playback error:', err));
+        }
+      }
+    };
 
-    const ballEventData = balldata
-    console.log(ballEventData,"ball daaaaaaata")
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
-    setBallEvent(ballEventData);
-    playAudio(ballEventData);
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      if (audioRef.current) {
+        audioRef.current.pause(); // Cleanup audio on component unmount
+      }
+    };
+  }, [isMuted, userInteracted]);
 
-  }, [])
-
-
-  // Play the specific audio based on ball event
-  const playAudio = (event) => {
-    const audioFile = audioMap[event];  // Look up the audio file based on event
-    if (audioFile) {
-        const audio = new Audio(audioFile);
-        audio.play();
-    } else {
-        console.log('No audio for this ball event');
+  // Play audio based on ball event response after user interaction
+  useEffect(() => {
+    if (userInteracted && balldata?.response.ball_event) {
+      const audioSrc = audioMap[balldata.response.ball_event];
+      if (audioSrc) {
+        if (audioRef.current) {
+          audioRef.current.pause(); // Stop any currently playing audio
+        }
+        const newAudio = new Audio(audioSrc);
+        newAudio.muted = isMuted; // Set mute state
+        audioRef.current = newAudio; // Save current audio instance
+        newAudio.play().catch((err) => console.error('Audio playback error:', err));
+      }
     }
-};
+  }, [balldata, isMuted, userInteracted]);
+
+
+
+  const handleClick = () => {
+    setIsMuted((prev) => !prev);
+    if (audioRef.current) {
+      audioRef.current.muted = !isMuted; // Toggle mute state for current audio
+    }
+  };
+
+  const handleUserInteraction = () => {
+    setUserInteracted(true);
+  };
+
+
+
+
 
 
 
@@ -104,16 +147,16 @@ const Commentary = ({ data, balldata }) => {
         </div>
 
         <div className=' md:w-1/2 py-5 md:order-2 order-1 md:py-0 text-3xl font-bold  flex items-center justify-center bg-gray-800 text-amber-200 text-center'>
-          {balldata?.response.ball_event
-          }
+          <div className='' onClick={handleUserInteraction}>
+            <div className='absolute top-2 right-4 text-white text-base cursor-pointer' onClick={handleClick}>
+              {isMuted ? <FaVolumeMute style={{ fontSize: '16px' }} /> : <FaVolumeUp style={{ fontSize: '16px' }} />}
+            </div>
+            {balldata?.response.ball_event}
+          </div>
         </div>
 
 
-{/* 
-        <div>
-          <p>{isPlaying ? 'Audio is playing' : 'Click to play audio'}</p>
-          <button onClick={handlePlay}>Play Audio</button>
-        </div> */}
+
 
 
 
@@ -199,7 +242,7 @@ const Commentary = ({ data, balldata }) => {
 
 
                 <div className=' font-medium  text-base items-center '>
-                  {data?.response.live.live_inning.batting_team_id == data?.response.match_info.teama.team_id ?
+                  {data?.response.teamwinpercentage.team_a_win > data?.response.teamwinpercentage.team_b_win ?
 
                     <div className='flex  items-center justify-between'>
 
@@ -207,9 +250,12 @@ const Commentary = ({ data, balldata }) => {
 
                       <div className='flex gap-2'>
 
-                        <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'> {Math.round((parseFloat(data?.response.live_odds.matchodds.teama.back) * 100) - 100).toString().padStart(2, '0')}</p>
+                        <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'> {Math.max(0, Math.round((parseFloat(data?.response.live_odds.matchodds.teama.back) * 100) - 100)).toString().padStart(2, '0')}</p>
                         <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
-                          {data?.response.live_odds.matchodds.teama.lay ? Math.round((parseFloat(data?.response.live_odds.matchodds.teama.lay) * 100) - 100).toString().padStart(2, '0') : "0"}
+                          {data?.response.live_odds.matchodds.teama.lay ? Math.max(0, Math.round((parseFloat(data?.response.live_odds.matchodds.teama.lay) * 100) - 100))
+                            .toString()
+                            .padStart(2, '0')
+                            : "0"}
 
                         </p>
 
@@ -225,14 +271,14 @@ const Commentary = ({ data, balldata }) => {
 
                       <div className='flex gap-2' >
                         <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'>
-                          {Math.round((parseFloat(data?.response.live_odds.matchodds.teamb.back) * 100) - 100).toString().padStart(2, '0')}
+                          {Math.max(0, Math.round((parseFloat(data?.response.live_odds.matchodds.teamb.back) * 100) - 100)).toString().padStart(2, '0')}
                         </p>
 
 
 
                         <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
 
-                          {data?.response.live_odds.matchodds.teamb.lay ? Math.round((parseFloat(data?.response.live_odds.matchodds.teamb.lay) * 100) - 100).toString().padStart(2, '0') : "0"}
+                          {data?.response.live_odds.matchodds.teamb.lay ? Math.max(0, Math.round((parseFloat(data?.response.live_odds.matchodds.teamb.lay) * 100) - 100)).toString().padStart(2, '0') : "0"}
 
                         </p>
 

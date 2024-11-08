@@ -10,7 +10,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios'
 import { useMyContext } from './MyProvider';
 
-import io from "socket.io-client";
+import {io} from "socket.io-client";
 
 
 
@@ -41,7 +41,7 @@ const MatchDetailView = () => {
     useEffect(() => {
         // const ws = new WebSocket(`ws://localhost:8000`)
 
-        const socket = io("https://nexifybackend.infayou.shop"); // Adjust URL as needed
+        const socket = io("https://cricket-app-eight.vercel.app/"); // Adjust URL as needed
         // ws.onopen = () => {
         //     console.log('WebSocket connection established');
         // };
@@ -91,10 +91,12 @@ const MatchDetailView = () => {
                 }
             }
         });
+        
 
         // ws.onerror = (err) => {
         //     console.log('Error in connection to socket:', err);
         // };
+
         return () => {
             socket.disconnect();
             console.log("Socket.IO connection closed");
