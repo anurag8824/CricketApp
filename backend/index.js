@@ -72,7 +72,7 @@ const io = socketIO(server, {
         methods: ["GET", "POST"],
     },
 });
-app.use(cors())
+app.use(cors({origin:"*"}))
 // const entityWs = new websocket(ENTITY_WS_URL);
 let lastKnownScoreData = null;
 
@@ -119,6 +119,10 @@ io.on("connection", (socket) => {
 // });
 
 // Start the server on port 8000
+
+app.get("/",(req,res)=>{
+res.send("API Socket")
+})
 server.listen(8000, () => {
     console.log("Socket.IO server running on port 8000");
 });
