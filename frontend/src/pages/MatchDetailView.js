@@ -10,7 +10,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios'
 import { useMyContext } from './MyProvider';
 
-import io from "socket.io-client";
+import {io} from "socket.io-client";
 
 
 
