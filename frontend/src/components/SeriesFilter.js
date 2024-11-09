@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { IoCheckmark } from "react-icons/io5";
 
 
-const SeriesFilter = () => {
+const SeriesFilter = ({ sendDataToParent }) => {
 
     const [checked, setChecked] = useState(false);
     const [checked1, setChecked1] = useState(false);
@@ -17,6 +17,8 @@ const SeriesFilter = () => {
 
         setChecked1(setChecked1(false));
         setChecked2(setChecked2(false));
+        const data = null
+        sendDataToParent(data);
 
 
     }
@@ -26,6 +28,8 @@ const SeriesFilter = () => {
         setChecked1(!checked1);
         setChecked(setChecked(false));
         setChecked2(setChecked2(false));
+        const data = "T20"
+        sendDataToParent(data);
 
 
     }
@@ -35,6 +39,8 @@ const SeriesFilter = () => {
         setChecked2(!checked2);
         setChecked1(setChecked1(false));
         setChecked(setChecked(false));
+        const data = "DM"
+        sendDataToParent(data);
 
 
     }
@@ -45,7 +51,12 @@ const SeriesFilter = () => {
         setChecked2(setChecked2(false));
 
     }
-
+    // const handleClick = () => {
+    //     const data = "Hello from the child!";
+        
+    //     // Call the function passed from the parent with the data
+    //     sendDataToParent(data);
+    // };
 
 
 

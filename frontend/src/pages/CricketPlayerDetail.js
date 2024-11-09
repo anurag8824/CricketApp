@@ -13,10 +13,11 @@ const PlayerDetail = () => {
 
     const Pid = useParams().id;
     console.log(Pid, "player id")
+    const backUrl = process.env.REACT_APP_BACK_URL;
 
 
     useEffect(() => {
-        axios.post(`https://cricket-static-data.vercel.app/api/v1/playerinfo`, { playerid: Pid })
+        axios.post(`${backUrl}/api/v1/playerinfo`, { playerid: Pid })
             .then((res) => {
                 console.log(res, "player infoooo")
                 const pdata = res.data.response;

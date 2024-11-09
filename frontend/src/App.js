@@ -1,6 +1,6 @@
 import './App.css';
 import HomePage from './pages/HomePage';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes,useLocation } from 'react-router-dom';
 import Layout from './pages/Layout';
 import CricketTeams from './pages/CricketTeams';
 import CricketPlayers from './pages/CricketPlayers';

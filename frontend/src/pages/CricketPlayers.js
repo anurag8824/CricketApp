@@ -2,25 +2,29 @@ import React, { useEffect, useState } from 'react'
 
 import FbConnect from "../components/FbConnect"
 import axios from "axios"
+import { useLocation } from 'react-router-dom'
 
 import { Link } from 'react-router-dom'
 
 const CricketPlayers = () => {
     const [data, setData] = useState([])
     const [ search , setSearch] = useState('')
+    const backUrl = process.env.REACT_APP_BACK_URL;
+    const location =useLocation();
+    
 
     useEffect(() => {
-        axios.get("https://cricket-static-data.vercel.app/api/v1/allplayer")
+        axios.get(`${backUrl}/api/v1/allplayer`)
             .then((res) => {
                 console.log(res, "allplayers");
                 setData(res.data.msg.items)
             })
-    }, [])
+    },[])
 
 
     const handleSearch = () => {
 
-        axios.post(`https://cricket-static-data.vercel.app/api/v1/searchplayer`, {search})
+        axios.post(`${backUrl}/api/v1/searchplayer`, {search})
             .then((res) => {
                 console.log(res, "send serach");
                 setData(res.data.msg.items)

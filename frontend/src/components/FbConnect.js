@@ -12,7 +12,7 @@ const FbConnect = () => {
 
                     <iframe
                         className='w-full h-72 pt-2'
-                        src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/IndianCricketTeam/&amp;tabs=timeline&amp;container_width=350&amp;small_header=true&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId=2626316474094765"
+                        src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/I787766766ketTeam/&amp;tabs=timeline&amp;container_width=350&amp;small_header=true&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId=2626316474094765"
                         title="fb:page Facebook Social Plugin"
                         frameborder="0"
                         allowtransparency="true"

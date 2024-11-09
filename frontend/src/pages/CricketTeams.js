@@ -8,11 +8,12 @@ const CricketTeams = () => {
     const [data, setData] = useState([])
 
     const [search, setSearch] = useState("")
+    const backUrl = process.env.REACT_APP_BACK_URL
 
 
     useEffect(() => {
 
-        axios.get("https://cricket-static-data.vercel.app/api/v1/allteam")
+        axios.get(`${backUrl}/api/v1/allteam`)
             .then((res) => {
                 console.log(res, "team list");
                 setData(res.data.msg.items)
@@ -74,7 +75,7 @@ const CricketTeams = () => {
     }, [])
     const handleSearch = () => {
 
-        axios.post(`https://cricket-static-data.vercel.app/api/v1/searchteam`, {search})
+        axios.post(`${backUrl}/api/v1/searchteam`, {search})
             .then((res) => {
                 console.log(res, "send serach");
                 setData(res.data.msg.items)

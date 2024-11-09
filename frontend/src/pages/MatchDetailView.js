@@ -20,6 +20,12 @@ const MatchDetailView = () => {
     const [activeTab, setActiveTab] = useState("commentary");
     const [ballevent, setBallevent] = useState()
     const [livedata, setLivedata] = useState(null)
+    const socketUrl = process.env.REACT_APP_URL;
+
+    const backUrl = process.env.REACT_APP_BACK_URL;
+
+    console.log(socketUrl, "backurl: " )
+
 
     const navigate = useNavigate();
     const token = "91e89bd6c7b1f611304ba0f6faf45fd3"
@@ -41,7 +47,7 @@ const MatchDetailView = () => {
     useEffect(() => {
         // const ws = new WebSocket(`ws://localhost:8000`)
 
-        const socket = io("http://websocket.infayou.shop"); // Adjust URL as needed
+        const socket = io(`${socketUrl}`); // Adjust URL as needed
         // ws.onopen = () => {
         //     console.log('WebSocket connection established');
         // }
@@ -106,7 +112,7 @@ const MatchDetailView = () => {
 
     useEffect(() => {
 
-        axios.post("https://cricket-static-data.vercel.app/api/v1/pre/data", { matchid: matchId })
+        axios.post(`${backUrl}/api/v1/pre/data`, { matchid: matchId })
             .then((res) => {
                 console.log(res, "prev datata abtaoned")
                 const data = res.data;
