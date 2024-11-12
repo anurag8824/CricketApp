@@ -473,7 +473,7 @@ const HomeScroller = () => {
 
     useEffect = () => {
 
-        axios.get('https://rest.entitysport.com/exchange/matches/?token=91e89bd6c7b1f611304ba0f6faf45fd3&date=2024-11-08_2024-11-11&timezone=+5:30&&paged=1&per_page=100')
+        axios.get('https://rest.entitysport.com/exchange/matches/?token=91e89bd6c7b1f611304ba0f6faf45fd3&date=2024-11-11_2024-11-13&timezone=+5:30&&paged=1&per_page=100')
             .then((res) => {
 
                 console.log(res);
@@ -510,8 +510,13 @@ const HomeScroller = () => {
             })
 
     }
+
     return (
-        <div className='md:flex md:space-x-4 md:overflow-x-scroll mx-auto   custom-scrollbar overflow-x-hidden'>
+
+
+
+
+        <div className='md:flex md:space-x-4 md:overflow-x-scroll mx-auto custom-scrollbar overflow-x-hidden'>
             {
                 livematch.length === 0 ? "" : <HomeScrollCard data={livematch} />
             }
@@ -523,7 +528,6 @@ const HomeScroller = () => {
             {
                 complete.length === 0 ? "" : <HomeScrollCard data={complete} />
             }
-
 
 
 

@@ -11,6 +11,7 @@ router.post("/searchplayer",TeamData.PlayerSerach)
 router.post("/playerinfo",TeamData.PlayerInformation)
 router.post("/pre/data",TeamData.PerivousData)
 router.get("/match/list",TeamData.CompationsList)
+router.get("/ranking", TeamData.Ranking)
 
 
 

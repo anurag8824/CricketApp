@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const TopRankings = () => {
     return (
@@ -89,9 +90,9 @@ const TopRankings = () => {
             </div>
 
 
-            <div class=" items-center text-center  mt-2 font-normal text-base text-violet-950 justify-between block tracking-normal antialiased hover:underline ">
+            <Link to="cricket-rankings" class=" items-center text-center  mt-2 font-normal text-base text-violet-950 justify-between block tracking-normal antialiased hover:underline ">
                 Show More
-            </div>
+            </Link>
 
 
 

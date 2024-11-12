@@ -24,7 +24,7 @@ const MatchDetailView = () => {
 
     const backUrl = process.env.REACT_APP_BACK_URL;
 
-    console.log(socketUrl, "backurl: " )
+    console.log(socketUrl, "backurl: ")
 
 
     const navigate = useNavigate();
@@ -131,12 +131,16 @@ const MatchDetailView = () => {
 
 
     return (
-        <div className='md:mx-20 mx-4 '>
+        <div className='md:mx-20 mx-4  '>
 
             <div className='flex px-1  py-10 justify-between'>
                 <div>
                     <p className='text-2xl  font-medium'>{livedata?.response.match_info.title}, {livedata?.response.match_info.subtitle} Match</p>
                     <p className='text-base  font-normal text-gray-500'>Date & Time: {livedata?.response.match_info.date_start_ist}</p>
+
+                    <p className='pb-2 '><span className='font-medium text-sm'>Toss:</span> {livedata?.response.match_info.toss.text}</p>
+
+
 
 
                 </div>

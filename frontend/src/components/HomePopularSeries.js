@@ -1,6 +1,7 @@
 import React from 'react'
 import DownloadApp from './DownloadApp'
 import TopRankings from './TopRankings'
+import { Link } from 'react-router-dom'
 
 const HomePopularSeries = () => {
     return (
@@ -29,9 +30,9 @@ const HomePopularSeries = () => {
                         </div>
                     </div>
 
-                    <div class=" items-center text-center text-violet-950 justify-between block tracking-normal antialiased hover:underline ">
+                    <Link to="cricket-series" class=" items-center text-center text-violet-950 justify-between block tracking-normal antialiased hover:underline ">
                         Show More
-                    </div>
+                    </Link>
 
 
 

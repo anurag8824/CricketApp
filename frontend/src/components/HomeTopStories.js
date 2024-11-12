@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import HomeTopNews from './HomeTopNews';
+import { Link } from 'react-router-dom';
 
 
 const HomeTopStories = () => {
@@ -41,9 +42,9 @@ const HomeTopStories = () => {
 
 
 
-          <button class="items-center mt-2 text-center text-violet-950 justify-between block tracking-normal antialiased hover:underline">
+          <Link to="cricket-videos" class="items-center mt-2 text-center text-violet-950 justify-between block tracking-normal antialiased hover:underline">
             See More
-          </button>
+          </Link>
 
 
 

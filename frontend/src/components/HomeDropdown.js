@@ -1,16 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaSortDown, FaSortUp } from 'react-icons/fa';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import { Link } from 'react-router-dom';
+import axios from 'axios'
 
-export const HomeDropdown = () => {
+const HomeDropdown = () => {
     const [show, setShow] = useState(false);
-
+  
     const showAll = () => {
-
-        setShow(!show);
-
+  
+      setShow(!show);
+  
     }
+    
 
     return (
         <div>
@@ -86,3 +88,4 @@ export const HomeDropdown = () => {
         </div>
     )
 }
+export default HomeDropdown

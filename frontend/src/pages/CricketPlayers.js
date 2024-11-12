@@ -8,10 +8,10 @@ import { Link } from 'react-router-dom'
 
 const CricketPlayers = () => {
     const [data, setData] = useState([])
-    const [ search , setSearch] = useState('')
+    const [search, setSearch] = useState('')
     const backUrl = process.env.REACT_APP_BACK_URL;
-    const location =useLocation();
-    
+    const location = useLocation();
+
 
     useEffect(() => {
         axios.get(`${backUrl}/api/v1/allplayer`)
@@ -19,12 +19,12 @@ const CricketPlayers = () => {
                 console.log(res, "allplayers");
                 setData(res.data.msg.items)
             })
-    },[])
+    }, [])
 
 
     const handleSearch = () => {
 
-        axios.post(`${backUrl}/api/v1/searchplayer`, {search})
+        axios.post(`${backUrl}/api/v1/searchplayer`, { search })
             .then((res) => {
                 console.log(res, "send serach");
                 setData(res.data.msg.items)
@@ -52,39 +52,49 @@ const CricketPlayers = () => {
                     className=' bg-white rounded-full pr-6 pl-3 py-3 text-sm' placeholder='Search...' />
             </div>
 
+
             <div className='flex gap-x-8'>
-                <div className='border mb-4 bg-white rounded-xl md:w-3/4 w-full h-full'>
 
-                    <div className='grid gap-y-2.5 grid-flow-row p-8'>
+                {data ?
 
-                        {data.map((item, index) => (
-                            item ? (
+                    <div className='border mb-4 bg-white rounded-xl md:w-3/4 w-full h-full'>
 
+                        <div className='grid gap-y-2.5 grid-flow-row p-8'>
 
-
-
-                                <div key={index} class="flex gap-4 border-b pb-2.5 items-center">
-                                    <img
-                                        src="/demoplayer.png"
-                                        alt="Tania Andrew"
-                                        class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
-                                    />
-
-                                    <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
-                                        <Link 
-                                        to={`/cricket-player-detail/${item.pid}`}
-
-                                         className='cursor-pointer hover:underline'>{item.title}</Link>
-                                        <span>{item.nationality}</span>
-                                    </p>
-                                </div>
-
-                            ) : null
-                        ))}
+                            {data.map((item, index) => (
+                                item ? (
 
 
 
 
+                                    <div key={index} class="flex gap-4 border-b pb-2.5 items-center">
+                                        <img
+                                            src="/demoplayer.png"
+                                            alt="Tania Andrew"
+                                            class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
+                                        />
+
+                                        <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+                                            <Link
+                                                to={`/cricket-player-detail/${item.pid}`}
+
+                                                className='cursor-pointer hover:underline'>{item.title}</Link>
+                                            <span>{item.nationality}</span>
+                                        </p>
+                                    </div>
+
+                                ) : null
+                            ))}
+
+
+
+
+
+
+
+
+
+                        </div>
 
 
 
@@ -92,16 +102,16 @@ const CricketPlayers = () => {
 
                     </div>
 
-
-
-
-
-                </div>
+                    : <div className="flex  justify-center ">
+                        <div className="w-4 h-4 border-2 border-blue-500 border-solid border-t-transparent rounded-full animate-spin">o</div>
+                    </div>}
 
                 <FbConnect />
 
 
             </div>
+
+
 
 
         </div>

@@ -9,66 +9,72 @@ import HomePopularSeries from '../components/HomePopularSeries';
 import HomeTopStories from '../components/HomeTopStories';
 import HomePolls from '../components/HomePolls';
 import HomeAllTeam from './HomeAllTeam';
-import { HomeDropdown } from '../components/HomeDropdown';
+import HomeDropdown from '../components/HomeDropdown';
 
 
 const HomePage = () => {
 
 
-  
 
- 
+
+
+
+
+
+
+
+
 
 
 
   return (
 
-    <div>
-      <HomeDropdown/>
+    <div className=''>
+      {/* <HomeDropdown /> */}
 
 
-    <div className='h-full md:mx-16 m-2 mt-4'>
+      <div className='h-full md:mx-16 m-2 mt-4'>
 
-      <HomeScroller />
-
-
-
-      <HomeAllTeam />
-
-
-      {/* <div class="text-2xl font-medium"></div> */}
+        <HomeScroller />
 
 
 
+        <HomeAllTeam />
 
 
-      <div className='md:flex grid-col-3 mx-auto grid md:justify-between gap-y-4'>
+        {/* <div class="text-2xl font-medium"></div> */}
 
 
-        <HomePopularSeries />
 
-        <div class=" lg:w-3/6 h-fit mx-auto space-y-6">
 
-          <HomeTopStories />
 
-          <HomePolls />
+        <div className='md:flex grid-col-3 mx-auto grid md:justify-between gap-y-4'>
+
+
+          <HomePopularSeries />
+
+          <div class=" lg:w-3/6 h-fit mx-auto space-y-6">
+
+            <HomeTopStories />
+
+            <HomePolls />
+
+          </div>
+
+          <FbConnect />
+
 
         </div>
 
-        <FbConnect />
+
+
+
+
+
+
 
 
       </div>
-
-
-
-
-
-
-
-
-
-    </div>
 
     </div>
 

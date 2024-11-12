@@ -119,7 +119,7 @@ const CricketTeams = () => {
                                         class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
                                     />
 
-                                    <Link to="/cricket-team-detail/home" class="block hover:underline font-sans text-base font-normal leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+                                    <Link to={`/cricket-team-detail/${item.tid}/home`} class="block hover:underline font-sans text-base font-normal leading-relaxed tracking-normal text-blue-gray-900 antialiased">
                                         {item.title}
                                     </Link>
                                 </div>

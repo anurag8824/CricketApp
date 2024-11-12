@@ -20,10 +20,10 @@ const HomeScrollCard = ({ data }) => {
                         </Link>
 
                         <a href={`match-detail/${item.match_id}/commentary`}>
-                            <div class="px-4 py-2 pb-1 mb-2 bg-white  items-center h-56 shadow-sm rounded-xl">
+                            <div class="px-4 py-2 pb-1 mb-2 bg-white  items-center  h-56 grid shadow-sm rounded-xl">
                                 <p class="block text-red-600 mb-1 text-sm font-bold antialiased">
-                                    <span class="animate-blink">●</span> {item.
-                                        status_str  === "Scheduled"? "Upcoming":item.status_str }
+                                    {item.
+                                        status_str === "Live" ? <> <span class="animate-blink">●</span> {item.status_str} </> : ""}
                                 </p>
 
                                 <div class="mb-1 flex items-center justify-between">
@@ -89,7 +89,26 @@ const HomeScrollCard = ({ data }) => {
                             </div>
                         </a>
 
-                        {/* <p class="block mt-1 px-2 text-xs font-medium mb-2 text-left text-yellow-500 transition-all">Upcoming</p> */}
+
+                        {item.status_str === "Scheduled" ? (
+                            <p className="block mt-1 px-2 text-xs font-medium mb-2 text-left text-yellow-500 transition-all">
+                                Upcoming
+                            </p>
+                        ) : item.status_str === "Completed" ? (
+                            <p className="block mt-1 px-2 text-xs font-medium mb-2 text-left text-green-500 transition-all">
+                                {item.status_note}
+                            </p>
+                        ) : (
+                            ""
+                        )}
+
+
+
+
+
+
+
+
                     </div>
 
                 ) : null

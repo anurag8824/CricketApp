@@ -24,6 +24,8 @@ const Scorecard = ({ data }) => {
     <div className="space-y-4 ">
       {/* Dropdown 1 */}
 
+      {data?.response.scorecard.innings ? <>
+
 
       {data?.response.scorecard.innings.map((item, index) => (
 
@@ -339,6 +341,10 @@ const Scorecard = ({ data }) => {
 
 
       ))}
+
+      </>
+
+: <p className=' font-medium text-md mt-2 text-center text-red-600 '>Match Not Started Yet</p>}
 
 
 

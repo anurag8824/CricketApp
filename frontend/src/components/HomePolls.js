@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const HomePolls = () => {
     return (
@@ -113,18 +114,12 @@ const HomePolls = () => {
             </div>
 
 
-            <div className=' text-center'>
-                <button class="mt-5 rounded-lg  bg-violet-900 px-3 py-2  text-sm font-medium text-white hover:bg-blue-800">
-                    Load More
-                </button>
-
-
-            </div>
+          
 
             <div className=' text-center'>
-                <button class=" mt-2 rounded-lg px-3 py-2 text-fuchsia-950  text-sm font-medium hover:underline">
+                <Link to="polls" class=" mt-2 rounded-lg px-3 py-2 text-fuchsia-950  text-sm font-medium hover:underline">
                     See More
-                </button>
+                </Link>
 
 
             </div>

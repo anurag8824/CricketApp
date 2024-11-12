@@ -1,6 +1,6 @@
 import './App.css';
 import HomePage from './pages/HomePage';
-import { BrowserRouter, Route, Routes,useLocation } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import Layout from './pages/Layout';
 import CricketTeams from './pages/CricketTeams';
 import CricketPlayers from './pages/CricketPlayers';
@@ -15,6 +15,7 @@ import MatchDetailView from './pages/MatchDetailView';
 import CricketSchedule from './pages/CricketSchedule';
 import CricketTeamDetail from './pages/CricketTeamDetail';
 import MyProvider from './pages/MyProvider';
+import CricketRanking from './pages/CricketRanking';
 
 
 
@@ -50,13 +51,13 @@ function App() {
             <Route path="cricket-series/venues" element={<SeriesView />} />
 
 
-            <Route path='cricket-team-detail/home' element={<CricketTeamDetail />} />
-            <Route path='cricket-team-detail/recent' element={<CricketTeamDetail />} />
-            <Route path='cricket-team-detail/upcoming' element={<CricketTeamDetail />} />
-            <Route path='cricket-team-detail/news' element={<CricketTeamDetail />} />
-            <Route path='cricket-team-detail/videos' element={<CricketTeamDetail />} />
-            <Route path='cricket-team-detail/players' element={<CricketTeamDetail />} />
-            <Route path='cricket-team-detail/series' element={<CricketTeamDetail />} />
+            <Route path='cricket-team-detail/:id/home' element={<CricketTeamDetail />} />
+            <Route path='cricket-team-detail/:id/recent' element={<CricketTeamDetail />} />
+            <Route path='cricket-team-detail/:id/upcoming' element={<CricketTeamDetail />} />
+            <Route path='cricket-team-detail/:id/news' element={<CricketTeamDetail />} />
+            <Route path='cricket-team-detail/:id/videos' element={<CricketTeamDetail />} />
+            <Route path='cricket-team-detail/:id/players' element={<CricketTeamDetail />} />
+            <Route path='cricket-team-detail/:id/series' element={<CricketTeamDetail />} />
 
 
 
@@ -71,6 +72,9 @@ function App() {
 
             <Route path="match-detail/:id/squad" element={<MatchDetailView />} />
             <Route path="match-detail/:id/highlights" element={<MatchDetailView />} />
+
+
+            <Route path="cricket-rankings" element={<CricketRanking />} />
 
 
 

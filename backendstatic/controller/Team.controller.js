@@ -157,6 +157,17 @@ const CompationsList = async (req, res) => {
 };
 
 
+const Ranking = async(req,res)=>{
+   try {
+     axios.get(`https://rest.entitysport.com/exchange/iccranks?token=${token}`).then((resp) =>{
+         res.json(resp.data);
+     })
+   } catch (error) {
+    console.error(error);
+    res.json({msg: "Internal Server Error"})
+   }
+}
 
 
-module.exports = { TeamData, PlayerData, TeamSerach, PlayerSerach, PlayerInformation, PerivousData, CompationsList }
+
+module.exports = { TeamData, PlayerData, Ranking, TeamSerach, PlayerSerach, PlayerInformation, PerivousData, CompationsList }
